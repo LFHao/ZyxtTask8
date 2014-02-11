@@ -29,7 +29,6 @@ public class MapAction extends Action {
 			return "map.jsp";
 		
 		String location = request.getParameter("location");
-		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 50);
 		try {
 			System.out.println("WTF");
 			List<String> photos = FlickrSearchTopic.getPhotos(location);
@@ -39,6 +38,7 @@ public class MapAction extends Action {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 25);
 		System.out.println(tweets.size() + " tweets returned.");
 		
 		request.setAttribute("tweets", tweets);
