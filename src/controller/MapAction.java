@@ -21,7 +21,7 @@ public class MapAction extends Action {
 			return "map.jsp";
 		
 		String location = request.getParameter("location");
-		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 50);
+		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 25);
 		System.out.println(tweets.size() + " tweets returned.");
 		
 		request.setAttribute("tweets", tweets);

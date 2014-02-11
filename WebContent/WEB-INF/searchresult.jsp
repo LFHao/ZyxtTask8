@@ -6,13 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Search Results on ${location}</title>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body>
 	<h1>Results on ${location}</h1>
 	<h3>Tweets</h3>
-	<table>
+	<table width="800px">
 		<c:forEach var="tweet" items="${tweets}">
-			<tr>
+			<tr><td>
+			<blockquote class="twitter-tweet" align="center" lang="en"><a href="${tweet.url}"></a></blockquote>
+			</td></tr>
+			<!-- <tr>
 				<td>
 					<div style="font-size:small; color:blue">
 						${tweet.name} posted a tweet at ${tweet.time}:
@@ -26,7 +30,7 @@
 					</div>
 				</td>
 			</tr>
-			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr> !-->
 		</c:forEach>
 	</table>
 	<h3>Flickrs</h3>
