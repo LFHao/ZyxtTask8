@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+    pageEncoding="US-ASCII"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,12 +61,10 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>zSpot</h1>
-                        <h3>Pick a city, meet the world!</h3>
+                        <h3>Pick a city, explore the world.</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
-                            <li><a href="cus-login.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span class="network-name">Login as customer</span></a>
-                            </li>
-                            <li><a href="emp-login.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span class="network-name">Login as employee</span></a>
+                            <li><a href="map.do" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span class="network-name">Start to Explore</span></a>
                             </li>
                         </ul>
                     </div>

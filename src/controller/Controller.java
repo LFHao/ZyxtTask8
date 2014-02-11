@@ -21,6 +21,7 @@ public class Controller extends HttpServlet {
 
 	public void init() throws ServletException {
 		Action.add(new HomePageAction());
+		Action.add(new MapAction());
 	}
 	
 	
@@ -43,12 +44,11 @@ public class Controller extends HttpServlet {
         String      servletPath = request.getServletPath();     
         String      action = getActionName(servletPath);
         HttpSession session = request.getSession(true);
-        //String 		identity = (String) request.getSession().getAttribute("identity");
         
         // User is not logged in or at the root of the app.
-        if (action.equals("welcome")){
+        if (action.equals("welcome"))
         	return "index.jsp";
-        }
+        
       	// Let the logged in user run his chosen action
 		return Action.perform(action,request);
     }

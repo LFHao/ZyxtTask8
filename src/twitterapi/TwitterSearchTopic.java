@@ -21,7 +21,7 @@ import auth.TwitterAuth;
 import databeans.Tweet;
 
 public class TwitterSearchTopic {
-	private String getTopicSearchString(String topic) {
+	private static String getTopicSearchString(String topic) {
 		final String RESOURCE_URL = "https://api.twitter.com/1.1/search/tweets.json";
 		
 		OAuthService service = new ServiceBuilder()
@@ -41,15 +41,19 @@ public class TwitterSearchTopic {
 		return response.getBody();
 	}
 	
-	public ArrayList<Tweet> searchTopic(String topic) {
+	public static ArrayList<Tweet> searchTopic(String topic, int maxcount) {
 		ArrayList<Tweet> ret = new ArrayList<Tweet>();
 		String respStr = getTopicSearchString(topic);
 		
 		try (InputStream is = new ByteArrayInputStream(respStr.getBytes("UTF-8")); JsonReader rdr = Json.createReader(is)) {
 			JsonArray results = rdr.readObject().getJsonArray("statuses");
 
-			for (JsonObject result : results.getValuesAs(JsonObject.class))
+			int count = 0;
+			for (JsonObject result : results.getValuesAs(JsonObject.class)) {
 				ret.add(new Tweet(result));
+				if (++count >= maxcount)
+					break;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

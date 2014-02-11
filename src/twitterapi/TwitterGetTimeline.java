@@ -21,7 +21,7 @@ import databeans.Tweet;
 import auth.TwitterAuth;
 
 public class TwitterGetTimeline {
-	private String getTimeLineString(String username) {
+	private static String getTimeLineString(String username) {
 		final String RESOURCE_URL = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 		
 		OAuthService service = new ServiceBuilder()
@@ -41,7 +41,7 @@ public class TwitterGetTimeline {
 		return response.getBody();
 	}
 	
-	public ArrayList<Tweet> getTimeLine(String username) {
+	public static ArrayList<Tweet> getTimeLine(String username) {
 		ArrayList<Tweet> ret = new ArrayList<Tweet>();
 		String respStr = getTimeLineString(username);
 		
