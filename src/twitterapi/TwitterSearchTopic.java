@@ -1,7 +1,10 @@
 package twitterapi;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import javax.json.Json;
@@ -17,6 +20,7 @@ import org.scribe.model.Token;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 
+import utility.GetPopularWords;
 import auth.TwitterAuth;
 import databeans.Tweet;
 
@@ -34,9 +38,18 @@ public class TwitterSearchTopic {
 
 		// Now let's go and ask for a protected resource!
 		OAuthRequest request = new OAuthRequest(Verb.GET, RESOURCE_URL);
-		request.addQuerystringParameter("q", topic);
-		request.addQuerystringParameter("count", "200");
+		String encodedTopic = null;
+		try {
+			encodedTopic = URLEncoder.encode(topic, "ISO-8859-1");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		if (encodedTopic == null)
+			encodedTopic = topic;
+		request.addQuerystringParameter("q", encodedTopic);
+		request.addQuerystringParameter("count", "100");
 		request.addQuerystringParameter("lang", "en");
+		//request.addQuerystringParameter("result_type", "popular");
 		service.signRequest(accessToken, request);
 		Response response = request.send();
 		return response.getBody();
@@ -50,14 +63,15 @@ public class TwitterSearchTopic {
 			JsonArray results = rdr.readObject().getJsonArray("statuses");
 
 			int count = 0;
-			for (JsonObject result : results.getValuesAs(JsonObject.class)) {
+			
+			for (JsonObject result : results.getValuesAs(JsonObject.class)) {				
 				ret.add(new Tweet(result));
 				if (++count >= maxcount)
 					break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}		
 		return ret;
 	}
 }

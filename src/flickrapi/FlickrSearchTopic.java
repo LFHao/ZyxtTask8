@@ -21,7 +21,6 @@ import databeans.*;
 
 public class FlickrSearchTopic {	
 	public static List<String> getPhotos(String searchParam) throws ParserConfigurationException, IOException, SAXException, FlickrException{
-		System.out.println("here");
 		List<String> result = new ArrayList<String>();
 		REST rest=new REST();
 		FlickrAuth flickrAuth = new FlickrAuth();

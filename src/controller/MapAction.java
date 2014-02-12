@@ -29,19 +29,19 @@ public class MapAction extends Action {
 			return "map.jsp";
 		
 		String location = request.getParameter("location");
+		List<String> photos = new ArrayList<String>();
 		try {
-			System.out.println("WTF");
-			List<String> photos = FlickrSearchTopic.getPhotos(location);
-			for (String url : photos) {
-				System.out.println(url);
-			}
+			photos.addAll(FlickrSearchTopic.getPhotos(location));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 25);
+		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 15);
+		ArrayList<String> popular = TwitterGetHotWords.getPopularWords(location);
 		
+		request.setAttribute("popular", popular);
 		request.setAttribute("tweets", tweets);
 		request.setAttribute("location", location);
+		request.setAttribute("photos", photos);
 		return "searchresult.jsp";
 	}
 

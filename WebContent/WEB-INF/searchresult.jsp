@@ -9,13 +9,24 @@
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body>
-	<h1>Results on ${location}</h1>
+	<h3 align="center">zSpot</h3>
+	<h1 align="center">Results on ${location}</h1>
+	<h3>Hot words in tweets about ${location}</h3>
+	<div align="center">
+		<table style="width: 90%">
+			<tr>
+			<c:forEach var="p" items="${popular}">
+				<td align="center">${p}</td>
+			</c:forEach>
+			</tr>
+		</table>
+	</div>
 	<h3>Tweets</h3>
 	<div align="center">
-		<table style="width:60%">
+		<table style="width: 90%" align="center">
 			<c:forEach var="tweet" items="${tweets}">
 				<tr>
-					<td>
+					<td align="center">
 						<blockquote class="twitter-tweet" lang="en">
 							<a href="${tweet.url}"></a>
 						</blockquote>
@@ -25,5 +36,20 @@
 		</table>
 	</div>
 	<h3>Flickrs</h3>
+	<div align="center">
+		<table style="width: 90%" align="center">
+			<c:forEach var="pic" items="${photos}" varStatus="status">
+				<c:if test="${status.index % 4 == 0}">
+					<tr>
+				</c:if>
+				<td align="center">
+					<img src="${pic}" width="320px">
+				</td>
+				<c:if test="${status.index % 4 == 3}">
+					</tr>
+				</c:if>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>
