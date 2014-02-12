@@ -36,7 +36,7 @@ public class MapAction extends Action {
 			e.printStackTrace();
 		}
 		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 15);
-		ArrayList<String> popular = TwitterGetHotWords.getPopularWords(location);
+		ArrayList<Mapping> popular = TwitterGetHotWords.getPopularWords(location);
 		
 		request.setAttribute("popular", popular);
 		request.setAttribute("tweets", tweets);

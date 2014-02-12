@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import databeans.*;
+
 public class GetPopularWords {
 	private static final String[] defaultStopWords={
 			"i","me","my","myself","we","our","ours","ourselves","you","your","yours","yourself",
@@ -21,8 +23,8 @@ public class GetPopularWords {
 			};
 	private static final int MAX_RETURN = 10;
 	
-	public ArrayList<String> mostPopularWords(String text, String query) {
-		ArrayList<String> ret = new ArrayList<String>();
+	public ArrayList<Mapping> mostPopularWords(String text, String query) {
+		ArrayList<Mapping> ret = new ArrayList<Mapping>();
 		HashSet<String> stopWords = new HashSet<String>();
 		HashMap<String, Integer> freq = new HashMap<String, Integer>();
 		for (String s : defaultStopWords)
@@ -37,11 +39,13 @@ public class GetPopularWords {
 			
 			word = word.replace("(\\.|;|,|:)", "");
 			
-			if (!(word.startsWith("#") || word.matches("[a-z]+")))
+			if (!(word.startsWith("#") || word.matches("^[a-z]+")))
 				continue;
 			if (word.startsWith("http:"))
 				continue;
 			if (word.startsWith("rt"))
+				continue;
+			if (word.equals("#" + query.toLowerCase()))
 				continue;
 			if (word.length() < 4)
 				continue;
@@ -65,17 +69,10 @@ public class GetPopularWords {
 		
 		for (int i = 0; i < MAX_RETURN; i++)
 			if (i < map.size()) {
-				ret.add(map.get(i).key);
-				System.out.println(map.get(i).key + "  " + map.get(i).value);
+				ret.add(map.get(i));
 			}
 		
 		return ret;
-	}
-	
-	private class Mapping {
-		String key;
-		int value;
-		public Mapping(String _key, int _value) { key = _key; value = _value; }
 	}
 	
 	private class MapComparator implements Comparator<Mapping> {

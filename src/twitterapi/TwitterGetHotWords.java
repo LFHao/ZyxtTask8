@@ -23,6 +23,7 @@ import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 
 import utility.GetPopularWords;
+import databeans.Mapping;
 import databeans.Tweet;
 import auth.TwitterAuth;
 
@@ -82,8 +83,8 @@ public class TwitterGetHotWords {
 		return ret;
 	}
 	
-	public static ArrayList<String> getPopularWords(String topic) {
-		ArrayList<String> ret = new ArrayList<String>();
+	public static ArrayList<Mapping> getPopularWords(String topic) {
+		ArrayList<Mapping> ret = new ArrayList<Mapping>();
 		ArrayList<Tweet> r = getTweets(topic);
 		StringBuilder sb = new StringBuilder();
 		for (Tweet t : r)
