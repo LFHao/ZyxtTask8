@@ -32,6 +32,8 @@ public class FlickrSearchTopic {
 	    //Create tag keyword array
 	    String[] tags=new String[]{searchParam};
 	    searchParams.setTags(tags);
+	    Photo p  = new Photo();
+	    
 	    PhotosInterface photosInterface=flickr.getPhotosInterface();
 	    //Execute search with entered tags
 	    PhotoList photoList=photosInterface.search(searchParams,20,1);
@@ -41,7 +43,9 @@ public class FlickrSearchTopic {
 	       //Get search result and check the size of photo result
 	       for(int i=0;i<photoList.size();i++){
 	    	   Photo photo=(Photo)photoList.get(i);
-	    	   result.add(photo.getUrl());
+	    	   result.add("http://farm"+photo.getFarm()+".staticflickr.com/"+photo.getServer()+"/"+photo.getId()+"_"+photo.getSecret()+".jpg");
+	    	   
+	    	   
 	       }
 	    }
 		return result;
