@@ -36,6 +36,7 @@ public class TwitterSearchTopic {
 		OAuthRequest request = new OAuthRequest(Verb.GET, RESOURCE_URL);
 		request.addQuerystringParameter("q", topic);
 		request.addQuerystringParameter("count", "200");
+		request.addQuerystringParameter("lang", "en");
 		service.signRequest(accessToken, request);
 		Response response = request.send();
 		return response.getBody();
