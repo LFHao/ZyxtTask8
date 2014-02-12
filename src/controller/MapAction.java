@@ -39,7 +39,6 @@ public class MapAction extends Action {
 			e.printStackTrace();
 		}
 		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 25);
-		System.out.println(tweets.size() + " tweets returned.");
 		
 		request.setAttribute("tweets", tweets);
 		request.setAttribute("location", location);

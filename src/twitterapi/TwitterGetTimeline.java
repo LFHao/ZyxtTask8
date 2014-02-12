@@ -36,6 +36,7 @@ public class TwitterGetTimeline {
 		OAuthRequest request = new OAuthRequest(Verb.GET, RESOURCE_URL);
 		request.addQuerystringParameter("screen_name", username);
 		request.addQuerystringParameter("count", "200");
+		request.addQuerystringParameter("locale", "en");
 		service.signRequest(accessToken, request);
 		Response response = request.send();
 		return response.getBody();
