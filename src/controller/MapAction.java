@@ -1,8 +1,16 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
+import com.aetrion.flickr.FlickrException;
+import com.aetrion.*;
 
 import databeans.*;
 import flickrapi.*;
@@ -21,6 +29,15 @@ public class MapAction extends Action {
 			return "map.jsp";
 		
 		String location = request.getParameter("location");
+		try {
+			System.out.println("WTF");
+			List<String> photos = FlickrSearchTopic.getPhotos(location);
+			for (String url : photos) {
+				System.out.println(url);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 25);
 		
 		request.setAttribute("tweets", tweets);
