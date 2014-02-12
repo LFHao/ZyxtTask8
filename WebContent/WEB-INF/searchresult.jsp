@@ -11,28 +11,19 @@
 <body>
 	<h1>Results on ${location}</h1>
 	<h3>Tweets</h3>
-	<table width="800px">
-		<c:forEach var="tweet" items="${tweets}">
-			<tr><td>
-			<blockquote class="twitter-tweet" align="center" lang="en"><a href="${tweet.url}"></a></blockquote>
-			</td></tr>
-			<!-- <tr>
-				<td>
-					<div style="font-size:small; color:blue">
-						${tweet.name} posted a tweet at ${tweet.time}:
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div style="padding-left:10px;">
-						${tweet.content}
-					</div>
-				</td>
-			</tr>
-			<tr><td>&nbsp;</td></tr> !-->
-		</c:forEach>
-	</table>
+	<div align="center">
+		<table style="width:60%">
+			<c:forEach var="tweet" items="${tweets}">
+				<tr>
+					<td>
+						<blockquote class="twitter-tweet" lang="en">
+							<a href="${tweet.url}"></a>
+						</blockquote>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 	<h3>Flickrs</h3>
 </body>
 </html>

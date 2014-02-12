@@ -22,7 +22,6 @@ public class MapAction extends Action {
 		
 		String location = request.getParameter("location");
 		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 25);
-		System.out.println(tweets.size() + " tweets returned.");
 		
 		request.setAttribute("tweets", tweets);
 		request.setAttribute("location", location);

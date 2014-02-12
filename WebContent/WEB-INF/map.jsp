@@ -1,31 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
-    <title>Start to explore the world!</title>
-    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
-    <style>
-      html, body, #map {
-        height: 100%;
-        margin: 0;
-      }
-      #info {
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 10px;
-        background-color: #999;
-        font: 14px Segoe UI;
-        width: 200px;
-        text-align: center;
-        border-radius: 0 0 0 10px;
-      }
-    </style>
-    <script src="http://js.arcgis.com/3.8/"></script>
-    <script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+<title>Start to explore the world!</title>
+<link rel="stylesheet"
+	href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
+<style>
+html,body,#map {
+	height: 100%;
+	margin: 0;
+}
+
+#info {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 10px;
+	background-color: #999;
+	font: 14px Segoe UI;
+	width: 200px;
+	text-align: center;
+	border-radius: 0 0 0 10px;
+}
+</style>
+<script src="http://js.arcgis.com/3.8/"></script>
+<script>
     var map, calculateSquareMiles;
       require([
         "esri/map", "esri/layers/FeatureLayer", "esri/InfoTemplate", 
@@ -39,36 +42,56 @@
         Color, number
       ) {
         map = new Map("map", {
-          basemap: "topo",
+          basemap: "hybrid",
           center: [-180, 10],
           zoom: 3
         });
         map.on("layers-add-result");
         
         var template = new InfoTemplate();
-        template.setTitle("\${name_en}, \${adm}");
-        template.setContent("<form action=\"map.do\" method=\"POST\"><input type=\"hidden\" name=\"location\" value=\"\${name_en}\"/><input type=\"submit\" name=\"mapbutton\" value=\"Explore\"></form>");
-
+        template.setTitle("\${name_en}, \${adm}"); 
+        //template.setContent("<form action=\"map.do\" method=\"POST\"><input type=\"hidden\" name=\"location\" value=\"\${name_en}\"/><input type=\"submit\" name=\"mapbutton\" value=\"Explore\"></form>");
+		template.setContent(getInfoContent("\${name_en}", "\${pop}", "\${lng}", "\${lat}", "\${rank}"));
         //add a layer to the map
         var featureLayer = new FeatureLayer("http://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/WorldCities/FeatureServer/0", {
           mode: FeatureLayer.MODE_ONDEMAND,
           infoTemplate:template,
-          outFields: ["name_en" , "adm"],
+          outFields: ["name_en" , "adm", "pop", "lng", "lat", "rank"],
           
         });
-        map.addLayer(featureLayer);
-        
-        //var color1 = new Color([247, 252, 185]); // yellow
-        //var color2 = new Color([173, 221, 142]); // light green
-        
-        //var symbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 10, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([255,0,0]), 1), new Color([0,255,0,0.25]));
-        //var renderer = new SimpleRenderer(symbol);
-        //featurelayer.setRenderer(renderer);
-        //map.addLayer(featureLayer);      
+        map.addLayer(featureLayer);  
       });
+      
+      function getInfoContent(name, population, lng, lat, rank, wiki) {
+    	  var str = "";
+    	  str += "<form action=\"map.do\" method=\"POST\">";
+    	  str += "<table>";
+    	  str += "<tr>";
+    	  str += "<td>Population:</td><td>" + population + "</td>";
+    	  str += "</tr>";
+    	  str += "<tr>";
+    	  str += "<td>Population Rank:</td><td>" + rank + "</td>";
+    	  str += "</tr>";
+    	  str += "<tr>";
+    	  str += "<td>Longitude:</td><td>" + lng +"</td>";
+    	  str += "</tr>";
+    	  str += "<tr>";
+    	  str += "<td>Latitude:</td><td>" + lat +"</td>";
+    	  str += "</tr>";
+    	  str += "<tr>";
+    	  str += "<td>Wikipedia:</td><td><a href=\"http://en.wikipedia.org/wiki/" + name.replace(" ", "_") + "\">Click Here</a></td>";
+    	  str += "</tr>";
+    	  str += "<tr><td colspan=\"2\" align=\"center\">";
+    	  str += "<input type=\"hidden\" name=\"location\" value=\""+ name +"\"/>";
+    	  str += "<input type=\"submit\" name=\"mapbutton\" value=\"Explore in zSpot\">";
+    	  str += "</td></tr>";
+    	  str += "</table>";
+    	  str += "</form>";
+    	  return str;
+      }
     </script>
-  </head>
-  <body>
-    <div id="map"></div>
-  </body>
-</html> 
+</head>
+<body>
+	<div id="map"></div>
+</body>
+</html>
