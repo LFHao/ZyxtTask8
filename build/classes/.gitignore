@@ -1,6 +1,6 @@
-/utility
-/twitterapi
-/flickrapi
-/controller
 /auth
+/controller
 /databeans
+/flickrapi
+/twitterapi
+/utility

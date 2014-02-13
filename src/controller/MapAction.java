@@ -42,7 +42,7 @@ public class MapAction extends Action {
 		request.setAttribute("tweets", tweets);
 		request.setAttribute("location", location);
 		request.setAttribute("photos", photos);
-		return "searchresult.jsp";
+		return "searchresult_2nd.jsp";
 	}
 
 }
