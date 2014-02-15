@@ -42,7 +42,6 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-
 body {
   margin: 0;
 }
@@ -7094,6 +7093,17 @@ th.visible-print,
 td.visible-print {
   display: none !important;
 }
+.two_graphs { 
+        display: block; 
+        width: 800px; // adjust width to be greater than the sum of your 
+graphs' widths 
+        margin: 0 auto; // the auto margin centers the two graphs. Adjust as 
+necessary to move left or right. 
+} 
+.gwt-viz-container {
+       float: left;
+       position: relative;
+    }
 
 @media print {
   .visible-print {

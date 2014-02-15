@@ -7,6 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+  <style type="text/css"></style>
 <title>Search Results on ${location}</title>
 <style>
 body {
@@ -51,8 +54,8 @@ if (pops != null) {
 		// Set chart options
 		var options = {
 			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
-			'width' : 640,
-			'height' : 480
+			'width' : 600,
+			'height' : 500
 		};
 
 		// Instantiate and draw our chart, passing in some options.
@@ -61,28 +64,111 @@ if (pops != null) {
 		chart.draw(data, options);
 	}
 </script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!--Load the AJAX API-->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://word-cumulus-goog-vis.googlecode.com/svn/trunk/wordcumulus.js"></script>
+    <script type="text/javascript" src="http://word-cumulus-goog-vis.googlecode.com/svn/trunk/swfobject.js"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1");
+
+      // Set callback to run when API is loaded
+      google.setOnLoadCallback(drawVisualization);
+
+      // Called when the Visualization API is loaded.
+      function drawVisualization() {
+
+        // Create and populate a data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Words');
+        data.addColumn('string', 'URL');
+        data.addColumn('number', 'Font size');
+        data.addRows(10);
+
+        data.setCell(0, 0, '<%=pops.get(0).getKey()%>');
+        data.setCell(0, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(0).getKey().replace(" ", "_")%>');
+        data.setCell(0, 2, 2+<%=pops.get(0).getValue()/1.5%>);
+        
+        data.setCell(1, 0, '<%=pops.get(1).getKey()%>');  
+        data.setCell(1, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(1).getKey().replace(" ", "_")%>');
+        data.setCell(1, 2, 2+<%=pops.get(1).getValue()/1.5%>);      
+        
+        data.setCell(2, 0, '<%=pops.get(2).getKey()%>');
+        data.setCell(2, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(2).getKey().replace(" ", "_")%>');
+        data.setCell(2, 2, 2+<%=pops.get(2).getValue()/1.5%>);       
+        
+		data.setCell(3, 0, '<%=pops.get(3).getKey()%>');
+        data.setCell(3, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(3).getKey().replace(" ", "_")%>');
+        data.setCell(3, 2, 2+<%=pops.get(3).getValue()/1.5%>);
+        
+        data.setCell(4, 0, '<%=pops.get(4).getKey()%>');
+        data.setCell(4, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(4).getKey().replace(" ", "_")%>');
+        data.setCell(4, 2, 2+<%=pops.get(4).getValue()/1.5%>);
+        
+        data.setCell(5, 0, '<%=pops.get(5).getKey()%>');
+        data.setCell(5, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(5).getKey().replace(" ", "_")%>');
+        data.setCell(5, 2, 2+<%=pops.get(5).getValue()/1.5%>);
+        
+        data.setCell(6, 0, '<%=pops.get(6).getKey()%>');
+        data.setCell(6, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(6).getKey().replace(" ", "_")%>');
+        data.setCell(6, 2, 2+<%=pops.get(6).getValue()/1.5%>);
+       
+        data.setCell(7, 0, '<%=pops.get(7).getKey()%>');
+        data.setCell(7, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(7).getKey().replace(" ", "_")%>');
+        data.setCell(7, 2, 2+<%=pops.get(7).getValue()/1.5%>);
+        
+        data.setCell(8, 0, '<%=pops.get(8).getKey()%>');
+        data.setCell(8, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(8).getKey().replace(" ", "_")%>');
+        data.setCell(8, 2, 2+<%=pops.get(8).getValue()/1.5%>);
+        
+        data.setCell(9, 0, '<%=pops.get(9).getKey()%>');
+        data.setCell(9, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(9).getKey().replace(" ", "_")%>');
+        data.setCell(9, 2, 2+<%=pops.get(9).getValue()/1.5%>);
+
+        
+       
+       var options = {
+    		'text_color': '#E0F8F7',
+   			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
+   			'width' : 500,
+   			'height' : 500,
+   			'hover_text_color' : '#00ff00',
+   			'speed': 100,
+   			
+   		};
+        // Instantiate our table object.
+        var vis = new gviz_word_cumulus.WordCumulus(document.getElementById('mydiv'));
+
+        // Draw our table with the data we created locally.
+        vis.draw(data, options);
+       }
+   </script>
 </head>
 <body>
-	<h3 align="center">zSpot</h3>
-	<h1 align="center">Results on ${location}</h1>
-	<h3>Hot Words In Tweets About ${location}</h3>
-	<div id="chart_div" style="width:100%" align="center"></div>
+	<h2 align="center">Results on ${location}</h2>
+	<h3 align="center">Hot Words In Tweets About ${location}</h3>
+	
+		<div class="col-md-5" id="chart_div"></div>
+		<div class="col-md-1"> </div>
+		<div class="col-md-5" id="mydiv"></div>
+	<div class="row">
+	<div class="col-md-6">
 	<h3>Flickrs</h3>
-	<div align="center">
-		<table style="width: 90%" align="center">
+		<table style="width: 100%">
 			<c:forEach var="pic" items="${photos}" varStatus="status">
-				<c:if test="${status.index % 4 == 0}">
+				<c:if test="${status.index % 2 == 0}">
 					<tr>
 				</c:if>
-				<td align="center"><img src="${pic}" width="320px"></td>
-				<c:if test="${status.index % 4 == 3}">
+				<td align="center"><img src="${pic}" height="350px" width="350px"></td>
+				<c:if test="${status.index % 2 == 1}">
 					</tr>
 				</c:if>
 			</c:forEach>
 		</table>
 	</div>
+    <div class="col-md-6">
 	<h3>Tweets</h3>
-	<div align="center">
 		<table style="width: 90%" align="center">
 			<c:forEach var="tweet" items="${tweets}">
 				<tr>
@@ -94,6 +180,7 @@ if (pops != null) {
 				</tr>
 			</c:forEach>
 		</table>
+	</div>
 	</div>
 </body>
 </html>

@@ -42,24 +42,63 @@ body {
 
         data.setCell(0, 0, '<%=pops.get(0).getKey()%>');
         data.setCell(0, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(0).getKey().replace(" ", "_")%>');
-        data.setCell(1, 0, '<%=pops.get(1).getKey()%>');
+        <%--data.setCell(0, 2, '<%=pops.get(0).getValue()%>');--%>
+        
+        data.setCell(1, 0, '<%=pops.get(1).getKey()%>');  
         data.setCell(1, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(1).getKey().replace(" ", "_")%>');
+        <%--
+                data.setCell(1, 2, '<%=pops.get(1).getValue()%>');
+        --%>
+        
+        
         data.setCell(2, 0, '<%=pops.get(2).getKey()%>');
         data.setCell(2, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(2).getKey().replace(" ", "_")%>');
-        data.setCell(3, 0, '<%=pops.get(3).getKey()%>');
+        <%---
+                data.setCell(2, 2, '<%=pops.get(2).getValue()%>');
+        
+        --%>
+		data.setCell(3, 0, '<%=pops.get(3).getKey()%>');
         data.setCell(3, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(3).getKey().replace(" ", "_")%>');
+        <%---
+                data.setCell(3, 2, '<%=pops.get(3).getKey()%>');
+        
+        --%>
         data.setCell(4, 0, '<%=pops.get(4).getKey()%>');
         data.setCell(4, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(4).getKey().replace(" ", "_")%>');
+        <%---
+                data.setCell(4, 2, '<%=pops.get(4).getValue()%>');
+        
+        --%>
         data.setCell(5, 0, '<%=pops.get(5).getKey()%>');
         data.setCell(5, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(5).getKey().replace(" ", "_")%>');
+        <%---
+                data.setCell(5, 2, '<%=pops.get(5).getValue()%>');
+        
+        --%>
         data.setCell(6, 0, '<%=pops.get(6).getKey()%>');
         data.setCell(6, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(6).getKey().replace(" ", "_")%>');
+        <%---
+                data.setCell(6, 2, '<%=pops.get(6).getValue()%>');
+        
+        --%>
         data.setCell(7, 0, '<%=pops.get(7).getKey()%>');
         data.setCell(7, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(7).getKey().replace(" ", "_")%>');
+        <%---
+                data.setCell(7, 2, '<%=pops.get(7).getValue()%>');
+        
+        --%>
         data.setCell(8, 0, '<%=pops.get(8).getKey()%>');
         data.setCell(8, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(8).getKey().replace(" ", "_")%>');
+        <%---
+                data.setCell(8, 2, '<%=pops.get(8).getValue()%>');
+        
+        --%>
         data.setCell(9, 0, '<%=pops.get(9).getKey()%>');
         data.setCell(9, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(9).getKey().replace(" ", "_")%>');
+        <%---
+                data.setCell(9, 2, '<%=pops.get(9).getValue()%>');
+        
+        --%>
         
        
        var options = {
