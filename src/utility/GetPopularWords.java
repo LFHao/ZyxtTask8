@@ -18,14 +18,14 @@ public class GetPopularWords {
 		"anywhere", "are", "around", "as",  "at", "back","be","became", "because","become","becomes", 
 		"becoming", "been", "before", "beforehand", "behind", "being", "below", "beside", "besides", 
 		"between", "beyond", "bill", "both", "bottom","but", "by", "call", "can", "cannot", "cant", 
-		"co", "con", "could", "couldnt", "cry", "de", "describe", "detail", "do", "done", "down", "due", 
+		"co", "con", "could", "couldnt", "cry", "de", "describe", "detail", "do", "did", "does", "done", "down", "due",
 		"during", "each", "eg", "eight", "either", "eleven","else", "elsewhere", "empty", "enough", "etc", 
 		"even", "ever", "every", "everyone", "everything", "everywhere", "except", "few", "fifteen", "fify", 
 		"fill", "find", "fire", "first", "five", "for", "former", "formerly", "forty", "found", "four", "from", 
 		"front", "full", "further", "get", "give", "go", "had", "has", "hasnt", "have", "he", "hence", "her",
 		"here", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "him", "himself", "his", "how",
 		"however", "hundred", "ie", "if", "in", "inc", "indeed", "interest", "into", "is", "it", "its", "itself", 
-		"keep", "last", "latter", "latterly", "least", "less", "ltd", "made", "many", "may", "me", "meanwhile", 
+		"just", "keep", "last", "latter", "latterly", "least", "less", "ltd", "made", "many", "may", "me", "meanwhile", 
 		"might", "mill", "mine", "more", "moreover", "most", "mostly", "move", "much", "must", "my", "myself", 
 		"name", "namely", "neither", "never", "nevertheless", "next", "nine", "no", "nobody", "none", "noone", 
 		"nor", "not", "nothing", "now", "nowhere", "of", "off", "often", "on", "once", "one", "only", "onto", 
@@ -40,7 +40,7 @@ public class GetPopularWords {
 		"up", "upon", "us", "very", "via", "was", "we", "well", "were", "what", "whatever", "when", "whence",
 		"whenever", "where", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", 
 		"which", "while", "whither", "who", "whoever", "whole", "whom", "whose", "why", "will", "with", "within",
-		"without", "would", "yet", "you", "your", "yours", "yourself", "yourselves", "the"
+		"without", "would", "yet", "you", "your", "yours", "yourself", "yourselves", "the", "retweet"
 			};
 	private static final int MAX_RETURN = 10;
 	
@@ -58,15 +58,13 @@ public class GetPopularWords {
 		while (st.hasMoreTokens()) {
 			String word = st.nextToken().toLowerCase();
 			
-			word = word.replace("\\.|;|,|:", "");
+			word = word.replace("\\.|;|,|:|#", "");
 			
-			if (!(word.startsWith("#") || word.matches("^[a-z]+")))
+			if (!word.matches("^[a-z]+"))
 				continue;
 			if (word.startsWith("http:"))
 				continue;
 			if (word.startsWith("rt"))
-				continue;
-			if (word.equals("#" + query.toLowerCase()))
 				continue;
 			if (word.length() < 4)
 				continue;
