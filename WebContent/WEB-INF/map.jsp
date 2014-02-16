@@ -116,14 +116,14 @@ html,body,#map {
 			
 			<form class="form-signin" method="post" action="map.do">
 			
-					<div class="col-md-4" align="center">
+					<div class="col-md-4" align="center" style="padding-top: 8px">
 
 						<input type="text" class="form-control" name="search"
 							placeholder="Enter a search Keyword">
 
 					</div>
-					<div class="col-md-2" align="center">
-						<button class="btn btn-default" type="submit" name="btnSubmit">Search</button>
+					<div class="col-md-2" align="center" style="padding-top: 8px">
+						<button class="btn btn-default": "submit" name="btnSubmit">Search</button>
 					</div>
 
 			</form>
@@ -139,25 +139,7 @@ html,body,#map {
 			</div>
 		</div>
 	</nav>
-
-	<!-- <div id="searchBar"
-		style="height: 50px; padding-bottom: 5px; padding-top: 5px;">
-
-		<form class="form-signin" method="post" action="map.do">
-			<div align="center">
-				<div class="col-md-8">
-
-					<input type="text" class="form-control" name="search"
-						placeholder="Enter a search Keyword">
-
-				</div>
-				<div class="col-md-4">
-					<button class="btn btn-default" type="submit" name="btnSubmit">Search</button>
-				</div>
-			</div>
-
-		</form>
-	</div> -->
+	<br><br>
 	<div id="map"></div>
 </body>
 </html>
