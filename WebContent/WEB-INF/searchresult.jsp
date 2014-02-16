@@ -163,8 +163,7 @@ if (pops != null) {
 </script>
 </head>
 <body>
-	<h2 align="center">Results on ${location}</h2>
-	<h3 align="center">Hot Words In Tweets About ${location}</h3>
+	<h2 align="center">Hot Words In Tweets About ${location}</h2>
 
 	<div class="col-md-5" id="chart_div"></div>
 	<div class="col-md-5" id="mydiv"></div>
@@ -201,18 +200,19 @@ if (pops != null) {
 		</div>
 	</div>
 
+	
 	<div align="center">
 		<form method="post" action="image.do">
 			<input type="hidden" name="pid" value="${pid}" />
-			<div id="tag-suggest-pop" style="display:block;">					
+			<div id="tag-suggest-pop" style="display:block;" align="center">					
 				<div class = "relative"></div>
 					<div class="content">
 					<button type="submit" name="button" class="btn btn-default btn-lg"
-					name="collage">Click To Get Your Souvenir</button>
+					name="collage">Click To Get Your Souvenir<tton>
 					</div>
 				</div>
 			</div>
 		</form>
-	</div>
+	
 </body>
 </html>
