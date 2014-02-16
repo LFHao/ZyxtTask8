@@ -145,8 +145,7 @@ if (pops != null) {
        
        var options = {
     		'text_color': '#E0F8F7',
-   			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>
-	',
+   			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
 			'width' : 500,
 			'height' : 500,
 			'hover_text_color' : '#E0F8F7',
