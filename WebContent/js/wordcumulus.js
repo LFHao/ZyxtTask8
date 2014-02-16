@@ -41,7 +41,7 @@ gviz_word_cumulus.WordCumulus.prototype.draw = function(data, options) {
     'mode' : 'tags',
     'distr' : 'false',
     'tcolor' : (options.text_color || '#ff0000').replace('#', '0x'),
-    'hcolor' : ('#FFBF00').replace('#', '0x'),
+    'hcolor' : (options.hover_text_color || '#ff0000').replace('#', '0x'),
     'speed' : (options.speed || 100)
   };
   var tags_xml = "<tags>";

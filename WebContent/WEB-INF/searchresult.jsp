@@ -54,8 +54,23 @@ if (pops != null) {
 		// Set chart options
 		var options = {
 			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
+			titleTextStyle:{color: 'white'},
 			'width' : 600,
-			'height' : 500
+			'height' : 500,
+			'backgroundColor':'0B0B3B',
+			vAxis: {
+					title: 'Hot Topics',  
+					titleTextStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'},
+					textStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
+			hAxis: {
+					title: 'Frequrency in 100 Searches',  
+					titleTextStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'},
+					textStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
+			'backgroundColor.stroke': '#E0F8F7', 
+			'backgroundColor.strokeWidth': 2,
+			'backgroundColor.fill': 'white',
+
+
 		};
 
 		// Instantiate and draw our chart, passing in some options.
@@ -88,43 +103,43 @@ if (pops != null) {
 
         data.setCell(0, 0, '<%=pops.get(0).getKey()%>');
         data.setCell(0, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(0).getKey().replace(" ", "_")%>');
-        data.setCell(0, 2, 2+<%=pops.get(0).getValue()/1.5%>);
+        data.setCell(0, 2, 2+<%=pops.get(0).getValue()/3%>);
         
         data.setCell(1, 0, '<%=pops.get(1).getKey()%>');  
         data.setCell(1, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(1).getKey().replace(" ", "_")%>');
-        data.setCell(1, 2, 2+<%=pops.get(1).getValue()/1.5%>);      
+        data.setCell(1, 2, 2+<%=pops.get(1).getValue()/3%>);      
         
         data.setCell(2, 0, '<%=pops.get(2).getKey()%>');
         data.setCell(2, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(2).getKey().replace(" ", "_")%>');
-        data.setCell(2, 2, 2+<%=pops.get(2).getValue()/1.5%>);       
+        data.setCell(2, 2, 2+<%=pops.get(2).getValue()/3%>);       
         
 		data.setCell(3, 0, '<%=pops.get(3).getKey()%>');
         data.setCell(3, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(3).getKey().replace(" ", "_")%>');
-        data.setCell(3, 2, 2+<%=pops.get(3).getValue()/1.5%>);
+        data.setCell(3, 2, 2+<%=pops.get(3).getValue()/3%>);
         
         data.setCell(4, 0, '<%=pops.get(4).getKey()%>');
         data.setCell(4, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(4).getKey().replace(" ", "_")%>');
-        data.setCell(4, 2, 2+<%=pops.get(4).getValue()/1.5%>);
+        data.setCell(4, 2, 2+<%=pops.get(4).getValue()/3%>);
         
         data.setCell(5, 0, '<%=pops.get(5).getKey()%>');
         data.setCell(5, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(5).getKey().replace(" ", "_")%>');
-        data.setCell(5, 2, 2+<%=pops.get(5).getValue()/1.5%>);
+        data.setCell(5, 2, 2+<%=pops.get(5).getValue()/3%>);
         
         data.setCell(6, 0, '<%=pops.get(6).getKey()%>');
         data.setCell(6, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(6).getKey().replace(" ", "_")%>');
-        data.setCell(6, 2, 2+<%=pops.get(6).getValue()/1.5%>);
+        data.setCell(6, 2, 2+<%=pops.get(6).getValue()/3%>);
        
         data.setCell(7, 0, '<%=pops.get(7).getKey()%>');
         data.setCell(7, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(7).getKey().replace(" ", "_")%>');
-        data.setCell(7, 2, 2+<%=pops.get(7).getValue()/1.5%>);
+        data.setCell(7, 2, 2+<%=pops.get(7).getValue()/2%>);
         
         data.setCell(8, 0, '<%=pops.get(8).getKey()%>');
         data.setCell(8, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(8).getKey().replace(" ", "_")%>');
-        data.setCell(8, 2, 2+<%=pops.get(8).getValue()/1.5%>);
+        data.setCell(8, 2, 2+<%=pops.get(8).getValue()/2%>);
         
         data.setCell(9, 0, '<%=pops.get(9).getKey()%>');
         data.setCell(9, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(9).getKey().replace(" ", "_")%>');
-        data.setCell(9, 2, 2+<%=pops.get(9).getValue()/1.5%>);
+        data.setCell(9, 2, 2+<%=pops.get(9).getValue()/2%>);
 
         
        
@@ -133,7 +148,7 @@ if (pops != null) {
    			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
    			'width' : 500,
    			'height' : 500,
-   			'hover_text_color' : '#00ff00',
+   			'hover_text_color' : '#E0F8F7',
    			'speed': 100,
    			
    		};
