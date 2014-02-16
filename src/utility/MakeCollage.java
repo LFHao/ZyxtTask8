@@ -10,6 +10,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,12 +28,21 @@ public class MakeCollage {
 		return null;
 	}
 
-	public static BufferedImage make(String location, BufferedImage fg, List<String> urls, int width, int height) {
-		if (urls == null || urls.size() < 1 || width < MIN_WIDTH || width > MAX_WIDTH || height < MIN_HEIGHT || height > MAX_HEIGHT)
+	public static BufferedImage make(String location, BufferedImage fg, List<String> murl, int width, int height) {
+		if (murl == null || murl.size() < 1 || width < MIN_WIDTH || width > MAX_WIDTH || height < MIN_HEIGHT || height > MAX_HEIGHT)
 			return null;
 
 		int maxWidth = width / 5;
 		int maxHeight = height / 5;
+		
+		ArrayList<String> urls = new ArrayList<String>();
+		if (murl.size() < MAX_SIZE)
+			urls.addAll(murl);
+		else {
+			for (int i = 0; i < MAX_SIZE; i++)
+				urls.add(murl.get(i));
+		}
+		
 		
 		BufferedImage bg = createBufferedImage(width, height);
 		Graphics2D g = bg.createGraphics();
@@ -167,4 +177,6 @@ public class MakeCollage {
 	public static final int SIGN_COLOR = 0xCEECF5;
 	public static final int HEAD_COLOR = 0xF6D8CE;
 	public static final int BG_COLOR = 0x0B0B3B;
+	
+	public static final int MAX_SIZE = 16;
 }
