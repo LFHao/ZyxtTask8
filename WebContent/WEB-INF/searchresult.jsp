@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bottom.css" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
 <style type="text/css"></style>
 <title>Search Results on ${location}</title>
@@ -145,8 +146,7 @@ if (pops != null) {
        
        var options = {
     		'text_color': '#E0F8F7',
-   			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>
-	',
+   			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
 			'width' : 500,
 			'height' : 500,
 			'hover_text_color' : '#E0F8F7',
@@ -204,9 +204,13 @@ if (pops != null) {
 	<div align="center">
 		<form method="post" action="image.do">
 			<input type="hidden" name="pid" value="${pid}" />
-			<div class="btn-group">
-				<button type="submit" name="button" class="btn btn-default btn-lg"
+			<div id="tag-suggest-pop" style="display:block;">					
+				<div class = "relative"></div>
+					<div class="content">
+					<button type="submit" name="button" class="btn btn-default btn-lg"
 					name="collage">Click To Get Your Souvenir</button>
+					</div>
+				</div>
 			</div>
 		</form>
 	</div>
