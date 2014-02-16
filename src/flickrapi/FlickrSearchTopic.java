@@ -35,7 +35,7 @@ public class FlickrSearchTopic {
 	    
 	    PhotosInterface photosInterface=flickr.getPhotosInterface();
 	    //Execute search with entered tags
-	    PhotoList photoList=photosInterface.search(searchParams,20,1);
+	    PhotoList photoList=photosInterface.search(searchParams,30,1);
 //	    System.out.println(photoList.toString());
 	    //get search result and fetch the photo object and get small square imag's url
 	    if(photoList!=null){
