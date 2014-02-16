@@ -6,9 +6,13 @@
 #tag-suggest-pop span,#tag-suggest-pop a{display:block;float:left;height:26px;line-height:26px;margin-top:14px}
 #tag-suggest-pop span{font-weight:bold}
 #tag-suggest-pop a{margin-left:.5em;padding:0 10px;background:#e4e4e4;color:#000;font-weight:bold;font-size:20px;border-radius:12px;}
+
 #tag-suggest-pop a:hover{background:#fff;text-decoration:none}
 #tag-suggest-pop .content {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80)\0;
   *background: #000;
   *filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+
 }
+
+
