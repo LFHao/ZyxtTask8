@@ -82,7 +82,7 @@ html,body,#map {
     	  str += "<td>Latitude:</td><td>" + lat +"</td>";
     	  str += "</tr>";
     	  str += "<tr>";
-    	  str += "<td>Wikipedia:</td><td><a href=\"http://en.wikipedia.org/wiki/" + name.replace(" ", "_") + "\">Click Here</a></td>";
+    	  str += "<td>Wikipedia:</td><td><a href=\"http://en.wikipedia.org/wiki/" + name.replace(" ", "_") + "\" target=\"_blank\">Click Here</a></td>";
     	  str += "</tr>";
     	  str += "<tr><td colspan=\"2\" align=\"center\">";
     	  str += "<input type=\"hidden\" name=\"location\" value=\""+ name +"\"/>";

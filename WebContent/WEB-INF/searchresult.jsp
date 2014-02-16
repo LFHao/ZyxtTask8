@@ -165,17 +165,16 @@ if (pops != null) {
 	<h3 align="center">Hot Words In Tweets About ${location}</h3>
 	
 		<div class="col-md-5" id="chart_div"></div>
-		<div class="col-md-1"> </div>
 		<div class="col-md-5" id="mydiv"></div>
 	<div class="row">
 	<div class="col-md-6">
-	<h3>Flickrs</h3>
+	<h3 align="center">Flickrs</h3>
 		<table style="width: 100%">
 			<c:forEach var="pic" items="${photos}" varStatus="status">
 				<c:if test="${status.index % 2 == 0}">
 					<tr>
 				</c:if>
-				<td align="center"><img src="${pic}" height="350px" width="350px"></td>
+				<td align="center"><img src="${pic}" height="225px" width="300px"></td>
 				<c:if test="${status.index % 2 == 1}">
 					</tr>
 				</c:if>
@@ -183,7 +182,7 @@ if (pops != null) {
 		</table>
 	</div>
     <div class="col-md-6">
-	<h3>Tweets</h3>
+	<h3 align="center">Tweets</h3>
 		<table style="width: 90%" align="center">
 			<c:forEach var="tweet" items="${tweets}">
 				<tr>
@@ -197,5 +196,13 @@ if (pops != null) {
 		</table>
 	</div>
 	</div>
+	
+	<div align="center">
+	<form method="post" action="image.do">
+	<div class="btn-group">
+    <button type="submit" name="button" class="btn btn-default btn-lg" name="collage">Click To Get Your Souvenir</button>
+    </div>
+    </form>
+    </div>
 </body>
 </html>
