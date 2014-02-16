@@ -41,6 +41,9 @@ public class MakeCollage {
 		g.setRenderingHint(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		
+		g.setPaint(new Color(BG_COLOR));
+		g.fillRect(0, 0, bg.getWidth(), bg.getHeight());
+		
 		double delta = 2 * 3.141592653589793d / urls.size();
 		double cur = 0;
 
@@ -145,9 +148,10 @@ public class MakeCollage {
 	}
 
 	private static BufferedImage createBufferedImage(int width, int height) {
-		java.awt.image.BufferedImage bi = new java.awt.image.BufferedImage(width, height, 2);
+		BufferedImage bi = new java.awt.image.BufferedImage(width, height, 2);
 		java.awt.Graphics2D g2 = bi.createGraphics();
 		bi = g2.getDeviceConfiguration().createCompatibleImage(width, height, 3);
+		
 		g2.dispose();
 		return bi;
 	}
@@ -162,4 +166,5 @@ public class MakeCollage {
 	
 	public static final int SIGN_COLOR = 0xCEECF5;
 	public static final int HEAD_COLOR = 0xF6D8CE;
+	public static final int BG_COLOR = 0x0B0B3B;
 }
