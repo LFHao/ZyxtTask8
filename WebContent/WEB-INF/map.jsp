@@ -9,6 +9,9 @@
 <title>Start to explore the world!</title>
 <link rel="stylesheet"
 	href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
+<link href="css/bootstrap.css" rel="stylesheet">
+
+   
 <style>
 html,body,#map {
 	height: 100%;
@@ -79,7 +82,7 @@ html,body,#map {
     	  str += "<td>Latitude:</td><td>" + lat +"</td>";
     	  str += "</tr>";
     	  str += "<tr>";
-    	  str += "<td>Wikipedia:</td><td><a href=\"http://en.wikipedia.org/wiki/" + name.replace(" ", "_") + "\">Click Here</a></td>";
+    	  str += "<td>Wikipedia:</td><td><a href=\"http://en.wikipedia.org/wiki/" + name.replace(" ", "_") + "\" target=\"_blank\">Click Here</a></td>";
     	  str += "</tr>";
     	  str += "<tr><td colspan=\"2\" align=\"center\">";
     	  str += "<input type=\"hidden\" name=\"location\" value=\""+ name +"\"/>";
@@ -92,6 +95,12 @@ html,body,#map {
     </script>
 </head>
 <body>
+	<div id="searchBar" style="height: 50px; padding-bottom: 5px; padding-top: 5px;">
+		<form class="form-signin" method="post" action="map.do">
+			<center><input type="text" class="input-large search-query"  name ="search" placeholder="Enter a search Keyword">
+			<input class="btn btn-primary" type="submit" name="btnSubmit" Value="search"></center>
+		</form>
+	</div>
 	<div id="map"></div>
 </body>
 </html>

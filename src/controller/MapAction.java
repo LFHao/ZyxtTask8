@@ -28,11 +28,18 @@ public class MapAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		if (request.getParameter("mapbutton") == null)
+		String location = null;
+		String val = request.getParameter("search");
+		System.out.println(val);			
+		
+		if (request.getParameter("mapbutton") == null && request.getParameter("search")==null)
 			return "map.jsp";
+		if (val != null)
+			location = val;
+		else
+			location = request.getParameter("location");
+		List<String> photos = new ArrayList<String>();
 		try {
-			String location = request.getParameter("location");
-			List<String> photos = new ArrayList<String>();
 			photos.addAll(FlickrSearchTopic.getPhotos(location));
 			ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 15);
 			ArrayList<Mapping> forPaint = TwitterGetHotWords.getPopularWords(location);

@@ -14,7 +14,15 @@ public class ImageAction extends Action {
 	}
 
 	public String perform(HttpServletRequest request) {
+		String pid = request.getParameter("pid");
+		if (pid != null) {
+			request.setAttribute("pid", pid);
+			return "image.jsp";
+		}
+		
 		String id = request.getParameter("id");
+		if (id == null)
+			return "searchresult.jsp";
 		ArrayList<String> errors = new ArrayList<String>();
 		
 		if (id == null || Integer.valueOf(id) < 0 || Integer.valueOf(id) >= Pictures.getSize()) {
@@ -24,6 +32,7 @@ public class ImageAction extends Action {
 		
 		BufferedImage img = Pictures.getPic(Integer.valueOf(id));
 		request.setAttribute("img", img);
+		request.setAttribute("pid", id);
 		return "image";
 	}
 }
