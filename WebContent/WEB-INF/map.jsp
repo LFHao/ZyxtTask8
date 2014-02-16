@@ -116,7 +116,7 @@ html,body,#map {
 			
 			<form class="form-signin" method="post" action="map.do">
 			
-					<div class="col-md-4" align="center" style="padding-top: 8px">
+					<div class="col-md-6" align="right" style="padding-top: 8px; padding-left:70px">
 
 						<input type="text" class="form-control" name="search"
 							placeholder="Enter a search Keyword">
