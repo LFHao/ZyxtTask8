@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,8 @@ import com.aetrion.*;
 import databeans.*;
 import flickrapi.*;
 import twitterapi.*;
+import utility.MakeCollage;
+import utility.WordsThumb;
 
 public class MapAction extends Action {
 
@@ -27,21 +30,33 @@ public class MapAction extends Action {
 	public String perform(HttpServletRequest request) {
 		if (request.getParameter("mapbutton") == null)
 			return "map.jsp";
-		
-		String location = request.getParameter("location");
-		List<String> photos = new ArrayList<String>();
 		try {
+			String location = request.getParameter("location");
+			List<String> photos = new ArrayList<String>();
 			photos.addAll(FlickrSearchTopic.getPhotos(location));
+			ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 15);
+			ArrayList<Mapping> forPaint = TwitterGetHotWords.getPopularWords(location);
+			ArrayList<Mapping> popular = new ArrayList<Mapping>();
+			for (int i = 0; i < 10; i++) {
+				if (i < forPaint.size())
+					popular.add(forPaint.get(i));
+			}
+
+			int w = 800, h = 600;
+			int sw = w / 20 * 14, sh = h / 20 * 14;
+			BufferedImage fg = WordsThumb.drawWordsThumb(forPaint, sw, sh, null);
+			BufferedImage img = MakeCollage.make(location, fg, photos, w, h);
+			int pid = Pictures.addPic(img);
+			
+			System.out.println("Image added. ID: " + pid);
+			request.setAttribute("pid", pid);
+			request.setAttribute("popular", popular);
+			request.setAttribute("tweets", tweets);
+			request.setAttribute("location", location);
+			request.setAttribute("photos", photos);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		ArrayList<Tweet> tweets = TwitterSearchTopic.searchTopic(location, 15);
-		ArrayList<Mapping> popular = TwitterGetHotWords.getPopularWords(location);
-		
-		request.setAttribute("popular", popular);
-		request.setAttribute("tweets", tweets);
-		request.setAttribute("location", location);
-		request.setAttribute("photos", photos);
 		return "searchresult.jsp";
 	}
 

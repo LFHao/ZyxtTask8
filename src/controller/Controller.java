@@ -22,6 +22,7 @@ public class Controller extends HttpServlet {
 	public void init() throws ServletException {
 		Action.add(new HomePageAction());
 		Action.add(new MapAction());
+		Action.add(new ImageAction());
 	}
 	
 	
@@ -72,6 +73,12 @@ public class Controller extends HttpServlet {
     	
     	if (nextPage.endsWith(".jsp")) {
 	   		RequestDispatcher d = request.getRequestDispatcher("WEB-INF/" + nextPage);
+	   		d.forward(request,response);
+	   		return;
+    	}
+    	
+    	if (nextPage.equals("image")) {
+	   		RequestDispatcher d = request.getRequestDispatcher(nextPage);
 	   		d.forward(request,response);
 	   		return;
     	}

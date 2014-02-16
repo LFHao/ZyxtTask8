@@ -21,7 +21,7 @@ public class GetPopularWords {
 		"co", "con", "could", "couldnt", "cry", "de", "describe", "detail", "do", "did", "does", "done", "down", "due",
 		"during", "each", "eg", "eight", "either", "eleven","else", "elsewhere", "empty", "enough", "etc", 
 		"even", "ever", "every", "everyone", "everything", "everywhere", "except", "few", "fifteen", "fify", 
-		"fill", "find", "fire", "first", "five", "for", "former", "formerly", "forty", "found", "four", "from", 
+		"fill", "find", "fire", "first", "five", "follow", "for", "former", "formerly", "forty", "found", "four", "from", 
 		"front", "full", "further", "get", "give", "go", "had", "has", "hasnt", "have", "he", "hence", "her",
 		"here", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "him", "himself", "his", "how",
 		"however", "hundred", "ie", "if", "in", "inc", "indeed", "interest", "into", "is", "it", "its", "itself", 
@@ -33,7 +33,7 @@ public class GetPopularWords {
 		"perhaps", "please", "put", "rather", "re", "same", "see", "seem", "seemed", "seeming", "seems", 
 		"serious", "several", "she", "should", "show", "side", "since", "sincere", "six", "sixty", "so", 
 		"some", "somehow", "someone", "something", "sometime", "sometimes", "somewhere", "still", "such", 
-		"system", "take", "ten", "than", "that", "the", "their", "them", "themselves", "then", "thence", 
+		"system", "take", "ten", "text", "than", "that", "the", "their", "them", "themselves", "then", "thence", 
 		"there", "thereafter", "thereby", "therefore", "therein", "thereupon", "these", "they", "thickv", 
 		"thin", "third", "this", "those", "though", "three", "through", "throughout", "thru", "thus", "to", 
 		"together", "too", "top", "toward", "towards", "twelve", "twenty", "two", "un", "under", "until", 
@@ -42,7 +42,7 @@ public class GetPopularWords {
 		"which", "while", "whither", "who", "whoever", "whole", "whom", "whose", "why", "will", "with", "within",
 		"without", "would", "yet", "you", "your", "yours", "yourself", "yourselves", "the", "retweet"
 			};
-	private static final int MAX_RETURN = 10;
+	private static final int MAX_RETURN = 30;
 	
 	public ArrayList<Mapping> mostPopularWords(String text, String query) {
 		ArrayList<Mapping> ret = new ArrayList<Mapping>();

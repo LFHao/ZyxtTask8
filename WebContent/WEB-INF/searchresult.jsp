@@ -67,6 +67,7 @@ if (pops != null) {
 	<h1 align="center">Results on ${location}</h1>
 	<h3>Hot Words In Tweets About ${location}</h3>
 	<div id="chart_div" style="width:100%" align="center"></div>
+	<div style="width:100%" align="center"><img src="image.do?id=${pid}"></div>
 	<h3>Flickrs</h3>
 	<div align="center">
 		<table style="width: 90%" align="center">
