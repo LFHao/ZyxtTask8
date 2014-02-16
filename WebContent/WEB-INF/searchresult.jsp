@@ -57,8 +57,11 @@ if (pops != null) {
 			'width' : 600,
 			'height' : 500,
 			'backgroundColor':'0B0B3B',
+			'legend': {position:'none'},
 			vAxis: {
-					title: 'Hot Topics',  
+					title: 'Hot Topics',
+					baseline:{color:'white'},
+					gridlines:{color:'white'},
 					titleTextStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'},
 					textStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
 			hAxis: {
