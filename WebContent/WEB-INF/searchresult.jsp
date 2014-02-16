@@ -57,8 +57,11 @@ if (pops != null) {
 			'width' : 600,
 			'height' : 500,
 			'backgroundColor':'0B0B3B',
+			'legend': {position:'none'},
 			vAxis: {
-					title: 'Hot Topics',  
+					title: 'Hot Topics',
+					baseline:{color:'white'},
+					gridlines:{color:'white'},
 					titleTextStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'},
 					textStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
 			hAxis: {
@@ -204,7 +207,7 @@ if (pops != null) {
 	<div align="center">
 		<form method="post" action="image.do">
 			<input type="hidden" name="pid" value="${pid}" />
-			<div id="tag-suggest-pop" style="display:block;">					
+			<div id="tag-suggest-pop" style="display:block;" align="center">					
 				<div class = "relative"></div>
 					<div class="content">
 					<button type="submit" name="button" class="btn btn-default btn-lg"
