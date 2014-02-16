@@ -21,13 +21,20 @@
 	rel='stylesheet' type='text/css'>
 
 <!-- Add custom CSS here -->
-<link href="css/landing-page.css" rel="stylesheet">
+<style>
+body {
+	background-color: #0B0B3B;
+	color: #CEECF5;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #CEECF5;
+}
+</style>
 
 </head>
 
 <body>
 
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -39,7 +46,7 @@
 				<a class="navbar-brand" href="index.jsp">zSpot</a>
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
+			Collect the nav links, forms, and other content for toggling
 			<div
 				class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
@@ -48,10 +55,10 @@
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
+			/.navbar-collapse
 		</div>
-		<!-- /.container -->
-	</nav>
+		/.container
+	</nav> -->
 
 	<div class="intro-header">
 		<div class="container">
@@ -60,17 +67,30 @@
 					<img src="image.do?getimage=true">
 				</div>
 			</div>
+
+			<!-- /.container -->
+			<div class="row" align="center">
+				<a href="https://twitter.com/share" class="twitter-share-button"
+					data-related="jasoncosta" data-hashtags="1"
+					data-url="http://www.google.com" data-lang="en" data-size="large"
+					data-count="none">Tweet</a>
+				<script>
+					!function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (!d.getElementById(id)) {
+							js = d.createElement(s);
+							js.id = id;
+							js.src = "https://platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js, fjs);
+						}
+					}(document, "script", "twitter-wjs");
+				</script>
+			</div>
 		</div>
-		<!-- /.container -->
-		<a href="https://twitter.com/share" class="twitter-share-button"
-			data-related="jasoncosta" data-hashtags="1"
-			data-url="http://www.google.com" data-lang="en" data-size="large"
-			data-count="none">Tweet</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	</div>
 	<!-- /.intro-header -->
 
-	<footer>
+	<!-- <footer>
 		<div class="container" align='center'>
 			<div class="row">
 				<div class="col-lg-12">
@@ -88,7 +108,7 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 
 	<!-- JavaScript -->
 	<script src="js/jquery-1.10.2.js"></script>

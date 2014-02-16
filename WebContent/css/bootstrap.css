@@ -7125,4 +7125,12 @@ necessary to move left or right.
   td.hidden-print {
     display: none !important;
   }
+  .tag-suggest-pop {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	bottom: 0;
+	left: 50%;
+	margin-left: -340px;
+}
 }
