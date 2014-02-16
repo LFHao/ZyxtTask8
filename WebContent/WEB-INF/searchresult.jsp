@@ -166,13 +166,38 @@ if (pops != null) {
 </script>
 </head>
 <body>
-	<h2 align="center">Hot Words In Tweets About ${location}</h2>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.jsp">zSpot</a>
+		</div>
 
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#about">About</a></li>
+				<li><a href="#services">Services</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+	
+	<br><br><br>
+	
+   
 	<div class="col-md-5" id="chart_div"></div>
 	<div class="col-md-5" id="mydiv"></div>
+	
 	<div class="row">
+	<div class="alert alert-info"><h3 align="center">Flickrs             Tweets</h3></div>
 		<div class="col-md-6">
-			<h3 align="center">Flickrs</h3>
 			<table style="width: 100%">
 				<c:forEach var="pic" items="${photos}" varStatus="status">
 					<c:if test="${status.index % 2 == 0}">
@@ -187,7 +212,6 @@ if (pops != null) {
 			</table>
 		</div>
 		<div class="col-md-6">
-			<h3 align="center">Tweets</h3>
 			<table style="width: 90%" align="center">
 				<c:forEach var="tweet" items="${tweets}">
 					<tr>
@@ -209,11 +233,13 @@ if (pops != null) {
 			<div class="relative">
 				<form method="post" action="image.do">
 					<div class="content">
-						<button type="submit" class="btn btn-default btn-lg" name="collage" value="true">Click To Get Your Souvenir</button>
+						<button type="submit" class="btn btn-default btn-lg"
+							name="collage" value="true">Click To Get Your Souvenir</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
