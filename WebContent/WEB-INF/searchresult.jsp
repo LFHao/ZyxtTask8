@@ -200,18 +200,17 @@ if (pops != null) {
 		</div>
 	</div>
 
-	
+
 	<div align="center">
-		<form method="post" action="image.do">
-			<div id="tag-suggest-pop" style="display:block;" align="center">					
-				<div class = "relative"></div>
+		<div id="tag-suggest-pop" style="display: block;" align="center">
+			<div class="relative">
+				<form method="post" action="image.do">
 					<div class="content">
-					<button type="submit" name="button" class="btn btn-default btn-lg"
-					name="collage" value="true">Click To Get Your Souvenir<tton>
+						<button type="submit" class="btn btn-default btn-lg" name="collage" value="true">Click To Get Your Souvenir</button>
 					</div>
-				</div>
+				</form>
 			</div>
-		</form>
-	
+		</div>
+	</div>
 </body>
 </html>
