@@ -57,7 +57,7 @@
 		<div class="container">
 			<div class="row">
 				<div style="width: 100%" align="center">
-					<img src="image.do?id=${pid}">
+					<img src="image.do?getimage=true">
 				</div>
 			</div>
 		</div>

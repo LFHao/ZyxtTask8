@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
@@ -48,19 +49,13 @@ public class MapAction extends Action {
 				if (i < forPaint.size())
 					popular.add(forPaint.get(i));
 			}
-
-			int w = 800, h = 600;
-			int sw = w / 20 * 14, sh = h / 20 * 14;
-			BufferedImage fg = WordsThumb.drawWordsThumb(forPaint, sw, sh, null);
-			BufferedImage img = MakeCollage.make(location, fg, photos, w, h);
-			int pid = Pictures.addPic(img);
 			
-			System.out.println("Image added. ID: " + pid);
-			request.setAttribute("pid", pid);
-			request.setAttribute("popular", popular);
-			request.setAttribute("tweets", tweets);
-			request.setAttribute("location", location);
-			request.setAttribute("photos", photos);
+			HttpSession session = request.getSession(true);
+			session.setAttribute("forPaint", forPaint);
+			session.setAttribute("popular", popular);
+			session.setAttribute("tweets", tweets);
+			session.setAttribute("location", location);
+			session.setAttribute("photos", photos);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

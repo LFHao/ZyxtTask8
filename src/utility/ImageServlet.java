@@ -26,4 +26,8 @@ public class ImageServlet extends HttpServlet {
         ServletOutputStream out = response.getOutputStream();
         ImageIO.write(img, "png", out);
     }
+    
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    	doGet(request, response);
+    }
 }

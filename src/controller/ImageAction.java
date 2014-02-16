@@ -3,10 +3,14 @@ package controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import utility.MakeCollage;
+import utility.WordsThumb;
 
 import java.awt.image.BufferedImage;
 
-import databeans.Pictures;
+import databeans.Mapping;
 
 public class ImageAction extends Action {
 	public String getName() {
@@ -14,25 +18,26 @@ public class ImageAction extends Action {
 	}
 
 	public String perform(HttpServletRequest request) {
-		String pid = request.getParameter("pid");
-		if (pid != null) {
-			request.setAttribute("pid", pid);
+		String pid = request.getParameter("collage");
+		if (pid != null)
 			return "image.jsp";
+
+		try {
+			HttpSession session = request.getSession(true);
+			ArrayList<Mapping> forPaint = (ArrayList<Mapping>) session.getAttribute("forPaint");
+			ArrayList<String> photos = (ArrayList<String>) session.getAttribute("photos");
+			String location = (String) session.getAttribute("location");
+
+			int w = 800, h = 600;
+			int sw = w / 20 * 14, sh = h / 20 * 14;
+			BufferedImage fg = WordsThumb.drawWordsThumb(forPaint, sw, sh, null);
+			BufferedImage img = MakeCollage.make(location, fg, photos, w, h);
+
+			request.setAttribute("img", img);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		String id = request.getParameter("id");
-		if (id == null)
-			return "searchresult.jsp";
-		ArrayList<String> errors = new ArrayList<String>();
-		
-		if (id == null || Integer.valueOf(id) < 0 || Integer.valueOf(id) >= Pictures.getSize()) {
-			errors.add("Invalid image id.");
-			return "searchresult.jsp";
-		}
-		
-		BufferedImage img = Pictures.getPic(Integer.valueOf(id));
-		request.setAttribute("img", img);
-		request.setAttribute("pid", id);
+		System.out.println("here");
 		return "image";
 	}
 }

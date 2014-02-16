@@ -41,7 +41,7 @@ body {
 		data.addColumn('string', 'Words');
 		data.addColumn('number', 'Popularity');
 		data.addRows([
-<%ArrayList<Mapping> pops = (ArrayList<Mapping>) request.getAttribute("popular");
+<%ArrayList<Mapping> pops = (ArrayList<Mapping>) session.getAttribute("popular");
 if (pops != null) {
     for (Mapping p : pops) {
         out.println("[\'"+ p.getKey() +"\' ,"+ p.getValue() + "], ");   
@@ -202,10 +202,9 @@ if (pops != null) {
 
 	<div align="center">
 		<form method="post" action="image.do">
-			<input type="hidden" name="pid" value="${pid}" />
 			<div class="btn-group">
 				<button type="submit" name="button" class="btn btn-default btn-lg"
-					name="collage">Click To Get Your Souvenir</button>
+					name="collage" value="true">Click To Get Your Souvenir</button>
 			</div>
 		</form>
 	</div>
