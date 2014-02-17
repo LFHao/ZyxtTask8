@@ -1,52 +1,93 @@
 package flickrapi;
 
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.ParserConfigurationException;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
 
-import org.xml.sax.SAXException;
+import org.json.*;
 
-import com.aetrion.flickr.Flickr;
-import com.aetrion.flickr.FlickrException;
-import com.aetrion.flickr.REST;
-import com.aetrion.flickr.photos.Photo;
-import com.aetrion.flickr.photos.PhotoList;
-import com.aetrion.flickr.photos.PhotosInterface;
-import com.aetrion.flickr.photos.SearchParameters;
+import auth.FlickrAuth;
 
-import auth.*;
-import databeans.*;
 
 public class FlickrSearchTopic {	
-	public static List<String> getPhotos(String searchParam) throws ParserConfigurationException, IOException, SAXException, FlickrException{
+	public static List<String> getPhotos(String searchParam){
+		FlickrAuth authObj = new FlickrAuth();
+		int per_page = 20;
+		int page = 1;
 		List<String> result = new ArrayList<String>();
-		REST rest=new REST();
-		FlickrAuth flickrAuth = new FlickrAuth();
-		Flickr flickr=new Flickr(flickrAuth.getKey(),rest);
-		SearchParameters searchParams=new SearchParameters();
-	    searchParams.setSort(SearchParameters.INTERESTINGNESS_DESC);
-	   
-	    //Create tag keyword array
-	    String[] tags=new String[]{searchParam};
-	    searchParams.setTags(tags);
-	    Photo p  = new Photo();
-	    
-	    PhotosInterface photosInterface=flickr.getPhotosInterface();
-	    //Execute search with entered tags
-	    PhotoList photoList=photosInterface.search(searchParams,30,1);
-//	    System.out.println(photoList.toString());
-	    //get search result and fetch the photo object and get small square imag's url
-	    if(photoList!=null){
-	       //Get search result and check the size of photo result
-	       for(int i=0;i<photoList.size();i++){
-	    	   Photo photo=(Photo)photoList.get(i);
-	    	   result.add("http://farm"+photo.getFarm()+".staticflickr.com/"+photo.getServer()+"/"+photo.getId()+"_"+photo.getSecret()+".jpg");
-	    	   
-	    	   
-	       }
-	    }
+		String method = "flickr.photos.search";
+		String strFlickrAPI  ="http://api.flickr.com/services/rest/?" + 
+				"&method=" + method + "&api_key=" + authObj.getKey()  + "&text=" + searchParam + "&format=json&nojsoncallback=1&per_page="
+				+ per_page + "&page=" + page ;
+		String jsonString = getDoc(strFlickrAPI);
+		try {
+			JSONArray photos = loadJSONFromString(jsonString);
+			for (int i = 0; i < photos.length(); i++) {
+				JSONObject n = photos.getJSONObject(i);
+				
+				try {
+					// Build the image URL as specified in the Flickr API
+					String url = "http://farm" + n.getInt("farm") + ".staticflickr.com/" + 
+							n.getString("server") + "/" + n.getString("id") + "_" + 
+							n.getString("secret") + "_z.jpg";
+					result.add(url);
+					
+				}
+				catch (Exception e) {
+					System.out.println("couldn't load image" + e.toString());
+				}
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
+	}
+	
+	private static JSONArray loadJSONFromString(String jsonString) throws JSONException {
+		JSONObject rootObj = new JSONObject(jsonString); 
+		JSONObject photoObj = rootObj.getJSONObject("photos");
+		JSONArray photos = photoObj.getJSONArray("photo");
+	
+		return photos;
+	
+	}
+
+	public static String getDoc(String urlToRead) {
+		 
+	    URL url;
+	    HttpURLConnection conn;
+	    BufferedReader rd;
+	    String line;
+	    String result = "";
+	 
+	    try {
+	 
+	        url = new URL(urlToRead);
+	        conn = (HttpURLConnection) url.openConnection();
+	        conn.setRequestMethod("GET");
+	 
+	        rd = new BufferedReader(
+	                new InputStreamReader(conn.getInputStream()));
+	 
+	        while ((line = rd.readLine()) != null) {
+	            result += line;
+	        }
+	 
+	        rd.close();
+	 
+	    } catch (Exception e) {
+	 
+	        e.printStackTrace();
+	 
+	    }
+	 
+	    return result;
 	}
 }

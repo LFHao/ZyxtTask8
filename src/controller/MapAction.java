@@ -19,6 +19,7 @@ public class MapAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		String location = null;
+		
 		String val = request.getParameter("search");	
 		HttpSession session = request.getSession(true);
 		
@@ -26,6 +27,9 @@ public class MapAction extends Action {
 			session.invalidate();
 			return "map.jsp";
 		}
+		if (val == null || val.length() == 0)
+			return "map.jsp";
+		
 		if (val != null)
 			location = val;
 		else
