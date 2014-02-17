@@ -82,7 +82,7 @@ body {
 	<div class="row" style="padding-top:20px; padding-bottom:40px">
 		<form class="form-signin" method="post" action="auth.do">
 			<div align="center">
-				<textarea name="status" rows="3" cols="50">I created a collage of hot words and pictures about ${location} using zSpot!</textarea>
+				<textarea name="status" rows="3" cols="50">I created a collage of popular words and pictures about ${location} using zSpot!</textarea>
 				<br>&nbsp;<br>				
 				<input type="hidden" name="hasauth" value="true"> 
 				<input type="text" class="input-large search-query" name="verify"

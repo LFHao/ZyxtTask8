@@ -39,7 +39,6 @@ public class AuthAction extends Action {
 			boolean res = TwitterSharePic.postTweetWithMedia(authRes, verifier, status, img);
 			if (res == true) {
 				session.setAttribute("auth", null);
-				session.invalidate();
 				return "succeed.jsp";
 			}		
 		} catch (Exception e) {

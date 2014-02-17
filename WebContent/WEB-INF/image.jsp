@@ -62,7 +62,7 @@ body {
 	<br>
 	
 	<div class="row" align="center" style="background-color: #BDBDBD; padding-top:20px; padding-bottom:10px">
-		<h3 align="center" style="color:#2E2E2E">Collage of Hot Pictures and Words about ${location}</h3>
+		<h3 align="center" style="color:#2E2E2E">Collage of Popular Pictures and Words about ${location}</h3>
 		<div style="width: 100%" align="center">
 			<img src="image.do?get=true">
 		</div>
