@@ -87,7 +87,7 @@ public class MakeCollage {
 		g.setComposite(java.awt.AlphaComposite.getInstance(3, 1.0f));
 		g.drawImage(fg, width / 2 - fg.getWidth() / 2, height / 2 - fg.getHeight() / 2, fg.getWidth(), fg.getHeight(), null);
 		
-		String produce = "Produced by Zyxt";
+		String produce = "Produced by zSpot";
 		Font font = new Font("Palatino Linotype", 1, 22);
 		g.setFont(font);
 		g.setPaint(new Color(SIGN_COLOR));
@@ -102,7 +102,7 @@ public class MakeCollage {
 		
 		g.drawString(produce, (int)rect.getX(), (int)(rect.getY() - bounds.getY()));
 		
-		String head = "zSpot - " + location;
+		String head = location;
 		Font fonth = new Font("Palatino Linotype", 1, 26);
 		g.setFont(fonth);
 		g.setPaint(new Color(HEAD_COLOR));
@@ -174,9 +174,9 @@ public class MakeCollage {
 	public static final int MAX_WIDTH = 2560;
 	public static final int MAX_HEIGHT = 1920;
 	
-	public static final int SIGN_COLOR = 0xCEECF5;
-	public static final int HEAD_COLOR = 0xF6D8CE;
-	public static final int BG_COLOR = 0x0B0B3B;
+	public static final int SIGN_COLOR = 0x0B2161;
+	public static final int HEAD_COLOR = 0x0B3B39;
+	public static final int BG_COLOR = 0xBDBDBD;
 	
 	public static final int MAX_SIZE = 16;
 }

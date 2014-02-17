@@ -21,23 +21,26 @@ public class ImageAction extends Action {
 		String pid = request.getParameter("collage");
 		if (pid != null)
 			return "image.jsp";
+		HttpSession session = request.getSession(true);
 
 		try {
-			HttpSession session = request.getSession(true);
-			ArrayList<Mapping> forPaint = (ArrayList<Mapping>) session.getAttribute("forPaint");
-			ArrayList<String> photos = (ArrayList<String>) session.getAttribute("photos");
-			String location = (String) session.getAttribute("location");
+			if (session.getAttribute("img") == null) {			
+				ArrayList<Mapping> forPaint = (ArrayList<Mapping>) session.getAttribute("forPaint");
+				ArrayList<String> photos = (ArrayList<String>) session.getAttribute("photos");
+				String location = (String) session.getAttribute("location");
 
-			int w = 800, h = 600;
-			int sw = w / 20 * 14, sh = h / 20 * 14;
-			BufferedImage fg = WordsThumb.drawWordsThumb(forPaint, sw, sh, null);
-			BufferedImage img = MakeCollage.make(location, fg, photos, w, h);
+				int w = 800, h = 600;
+				int sw = w / 20 * 14, sh = h / 20 * 14;
+				BufferedImage fg = WordsThumb.drawWordsThumb(forPaint, sw, sh,
+						null);
+				BufferedImage img = MakeCollage
+						.make(location, fg, photos, w, h);
 
-			session.setAttribute("img", img);
+				session.setAttribute("img", img);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("here");
 		return "image";
 	}
 }

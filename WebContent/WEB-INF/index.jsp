@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>zSpot</title>
+    <title>zSpot - Pick a City, Explore the World.</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">zSpot</a>
+                <a class="navbar-brand" href="homepage.do">zSpot</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

@@ -38,43 +38,8 @@ public class TwitterSharePic {
 
 		return new AuthResult(requestToken, url, service);
 	}
-
-	public static void sharePic(AuthResult res, String verifyStr,
-			String status, BufferedImage img) {
-		try {
-			OAuthService service = res.getService();
-			Token requestToken = res.getAccessToken();
-			Verifier verifier = new Verifier(verifyStr);
-
-			Token accessToken = service.getAccessToken(requestToken, verifier);
-
-			OAuthRequest request = new OAuthRequest(Verb.POST,
-					PROTECTED_RESOURCE_URL);
-			request.addHeader("Content-Type", "multipart/form-data");  
-			service.signRequest(accessToken, request);
-			
-			request.addBodyParameter("status", status);
-			
-			BASE64Encoder encoder = new BASE64Encoder();
-			
-			ByteArrayOutputStream out = new ByteArrayOutputStream();
-			try {
-				ImageIO.write(img, "png", out);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			String encoded = encoder.encode(out.toByteArray());
-			
-			request.addBodyParameter("media[]", encoded + ";type=image/png;filename=zSpot;");
-			Response response = request.send();
-
-			System.out.println(response.getBody());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-	public static void postTweetWithMedia(AuthResult res, String verifyStr,
+	public static boolean postTweetWithMedia(AuthResult res, String verifyStr,
 			String status, BufferedImage img) throws MalformedURLException, IOException{
 		//create a temp pic from the RUL
 		File f = new File("temp.png");
@@ -106,14 +71,14 @@ public class TwitterSharePic {
 	        service.signRequest(accessToken, request);
 	        Response response = request.send();
 
-	        if (response.isSuccessful()) {
-				System.out.println("Upload succeed!");
-	        }
+	        if (response.isSuccessful())
+	        	return true;
 
 	    } catch (UnsupportedEncodingException e) {
 	        e.printStackTrace();
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
+	    return false;
 	}
 }

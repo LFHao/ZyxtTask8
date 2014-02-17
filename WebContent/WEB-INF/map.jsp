@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+	pageEncoding="US-ASCII"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport"
-	content="initial-scale=1, maximum-scale=1,user-scalable=no" />
-<title>Start to explore the world!</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>zSpot - Start to Explore the World!</title>
 <link rel="stylesheet"
 	href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -71,13 +74,14 @@ html,body,#map {
 
 	function getInfoContent(name, population, lng, lat, rank, wiki) {
 		var str = "";
+		str += "<div align=\"center\" style:\"width:95%\">";
 		str += "<form action=\"map.do\" method=\"POST\">";
 		str += "<table>";
 		str += "<tr>";
 		str += "<td>Population:</td><td>" + population + "</td>";
 		str += "</tr>";
 		str += "<tr>";
-		str += "<td>Population Rank:</td><td>" + rank + "</td>";
+		str += "<td>Population Rank:&nbsp;&nbsp;</td><td>" + rank + "</td>";
 		str += "</tr>";
 		str += "<tr>";
 		str += "<td>Longitude:</td><td>" + lng + "</td>";
@@ -91,11 +95,14 @@ html,body,#map {
 				+ "\" target=\"_blank\">Click Here</a></td>";
 		str += "</tr>";
 		str += "<tr><td colspan=\"2\" align=\"center\">";
+		str += "<div style=\"padding-top: 20px; font:helvetica\">";
 		str += "<input type=\"hidden\" name=\"location\" value=\""+ name +"\"/>";
-		str += "<input type=\"submit\" name=\"mapbutton\" value=\"Explore in zSpot\">";
+		str += "<input class=\"btn btn-primary\" type=\"submit\" name=\"mapbutton\" value=\"Explore in zSpot\">";
+		str += "</div>";
 		str += "</td></tr>";
 		str += "</table>";
 		str += "</form>";
+		str += "</div>";
 		return str;
 	}
 </script>
@@ -110,20 +117,22 @@ html,body,#map {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp">zSpot</a>
+				<a class="navbar-brand" href="homepage.do">zSpot</a>
 			</div>
-			
+
 			<form class="form-signin" method="post" action="map.do">
-			
-					<div class="col-md-6" align="right" style="padding-top: 8px; padding-left:70px">
 
-						<input type="text" class="form-control" name="search"
-							placeholder="Enter a search Keyword">
+				<div class="col-md-6" align="right"
+					style="padding-top: 8px; padding-left: 70px">
 
-					</div>
-					<div class="col-md-2" align="center" style="padding-top: 8px">
-						<input class="btn btn-primary" type="submit" name="btnSubmit" Value="search">
-					</div>
+					<input type="text" class="form-control" name="search"
+						placeholder="Enter a search Keyword">
+
+				</div>
+				<div class="col-md-2" align="center" style="padding-top: 8px">
+					<input class="btn btn-primary" type="submit" name="btnSubmit"
+						Value="Explore in zSpot">
+				</div>
 
 			</form>
 
@@ -138,7 +147,24 @@ html,body,#map {
 			</div>
 		</div>
 	</nav>
-	<br><br>
+	<br>
+	<br>
 	<div id="map"></div>
+	
+	<footer>
+		<div class="container" align='center'>
+			<div class="row">
+				<div class="col-lg-12" style="padding:20px">
+					<p class="copyright text-muted small">Copyright &copy; Team
+						Zyxt 2014. All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
 </body>
+
 </html>

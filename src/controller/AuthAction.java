@@ -1,6 +1,8 @@
 package controller;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,9 @@ public class AuthAction extends Action {
 	public String getName() { return "auth.do"; }
 
 	public String perform(HttpServletRequest request) {
+		ArrayList<String> errors = new ArrayList<String>();
+		request.setAttribute("errors", errors);
+		
 		try {
 			AuthResult authRes = null;
 			HttpSession session = request.getSession(true);
@@ -19,24 +24,30 @@ public class AuthAction extends Action {
 				session.setAttribute("auth", authRes);			
 				return "auth.jsp";			
 			}
-
-			if (request.getParameter("verify") == null)
+			
+			String verifier = request.getParameter("verify");
+			if (verifier == null || verifier.length() != 7) {
+				errors.add("Verifier is invalid.");
 				return "auth.jsp";
+			}
+			
+			String status = request.getParameter("status");
 
 			authRes = (AuthResult) session.getAttribute("auth");
-			String verifier = request.getParameter("verify");
 			BufferedImage img = (BufferedImage) session.getAttribute("img");
 
-			TwitterSharePic.postTweetWithMedia(authRes, verifier, "Hello world!", img);
-			System.out.println("Verifier: " + verifier + ". Update succeed!");
-
-			session.setAttribute("auth", null);
-			session.invalidate();
+			boolean res = TwitterSharePic.postTweetWithMedia(authRes, verifier, status, img);
+			if (res == true) {
+				session.setAttribute("auth", null);
+				session.invalidate();
+				return "succeed.jsp";
+			}		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return "index.jsp";
+		errors.add("Verification failed. Please try again.");
+		return "auth.jsp";
 	}
 
 }

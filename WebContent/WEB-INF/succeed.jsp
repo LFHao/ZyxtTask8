@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>zSpot - Collage of ${location}</title>
+<title>zSpot - Succeed!</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -24,8 +24,8 @@
 <style>
 body {
 	background-color: #424242;
-	color: #CEECF5;
 	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #CEECF5;
 }
 </style>
 
@@ -58,21 +58,12 @@ body {
 		<!-- /.container -->
 	</nav>
 	
-	<br>
-	<br>
-	
-	<div class="row" align="center" style="background-color: #BDBDBD; padding-top:20px; padding-bottom:10px">
-		<h3 align="center" style="color:#2E2E2E">Collage of Hot Pictures and Words about ${location}</h3>
-		<div style="width: 100%" align="center">
-			<img src="image.do?get=true">
-		</div>
-	</div>
-
-	<div class="row" align="center" style="background-color: #424242; padding-top:10px; padding-bottom:20px">
-		<form class="form-signin" method="post" action="auth.do">
+	<div class="row" align="center" style="background-color: #424242; padding-top:200px; padding-bottom:200px">
+		<h3>Congratulations! You have shared the collage to your Twitter account.</h3>
+		<form class="form-signin" method="post" action="homepage.do">
 			<div align="center">
 				<input class="btn btn-primary btn-lg" type="submit" name="share"
-					value="Share the Collage to My Twitter">
+					value="Go to the Homepage">
 			</div>
 		</form>
 	</div>
