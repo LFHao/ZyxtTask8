@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,72 +27,93 @@ body {
 	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background-color: #424242;
 }
+
+#errors {
+	padding: 10px 40px;
+	background: #F8E0F7;
+	width: 45%;
+	border-radius: 15px;
+	font-family: Helvetica;
+	color: #610B5E;
+}
 </style>
 
 </head>
 
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-ex1-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="homepage.do">zSpot</a>
-		</div>
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="homepage.do">zSpot</a>
+			</div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#about">About</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div
+				class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#about">About</a></li>
+					<li><a href="#services">Services</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
 	</nav>
-	
+
 	<br>
 	<br>
-	
-	<div class="row" align="center" style="background-color: #BDBDBD; padding-top:20px; padding-bottom:10px">
-		<h3 align="center" style="color:#2E2E2E">Share the Collage of ${location} to Your Twitter</h3>
+
+	<div class="row" align="center"
+		style="background-color: #BDBDBD; padding-top: 20px; padding-bottom: 10px">
+		<h3 align="center" style="color: #2E2E2E">Share the Collage of
+			${location} to Your Twitter</h3>
 		<div align="center">
 			<img src="image" width="450px">
 		</div>
 	</div>
 
-	<div class="row" align="center">
-		<jsp:include page="error-list.jsp" />
-	</div>
-	
-	<div class="row" style="padding-top:20px">
-		<form class="form-signin" method="post" action="${auth.authUrl}"
-			target="_blank">
-			<div align="center">
-				<input class="btn btn-primary-lg" type="submit" name="share" width="200px"
-					value="Get the Verifier">
+	<div class="row" align="center"
+		style="padding-top: 20px; padding-bottom: 20px">
+		<div id="errors">
+			If you got a 403 verification error when trying to get the verifier,
+			clear the cookies of your browser, go back to the home page and try
+			again.<br>
+
+			<div class="row" style="padding-top: 20px">
+				<form class="form-signin" method="post" action="${auth.authUrl}"
+					target="_blank">
+					<div align="center">
+						<input class="btn btn-primary-lg" type="submit" name="share"
+							style="width: 200px; height: 60px; font-size: 20px; background: #610B5E; color: white"
+							value="Get the Verifier">
+					</div>
+				</form>
 			</div>
-		</form>
+			
+			<jsp:include page="error-list.jsp" />
+						
+		</div>
 	</div>
 
-	<div class="row" style="padding-top:20px; padding-bottom:40px">
+	<div class="row" style="padding-top: 20px; padding-bottom: 40px">
 		<form class="form-signin" method="post" action="auth.do">
 			<div align="center">
 				<textarea name="status" rows="3" cols="50">I created a collage of popular words and pictures about ${location} using zSpot!</textarea>
-				<br>&nbsp;<br>				
-				<input type="hidden" name="hasauth" value="true"> 
-				<input type="text" class="input-large search-query" name="verify"
-					placeholder="Enter the verifier"> &nbsp;&nbsp;&nbsp;
-				<input class="btn btn-primary" type="submit" name="authbutton"
+				<br>&nbsp;<br> <input type="hidden" name="hasauth"
+					value="true"> <input type="text"
+					class="input-large search-query" name="verify"
+					placeholder="Enter the verifier"> &nbsp;&nbsp;&nbsp; <input
+					class="btn btn-primary" type="submit" name="authbutton"
 					value="Confirm the Verifier">
 			</div>
 		</form>
 	</div>
-	
+
 	<footer>
 		<div class="container" align='center'>
 			<div class="row">

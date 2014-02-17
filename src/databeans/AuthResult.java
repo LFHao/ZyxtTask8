@@ -10,7 +10,7 @@ public class AuthResult {
 	
 	public AuthResult(Token _t, String _u, OAuthService _s) {
 		accessToken = _t;
-		authUrl = _u;
+		authUrl = _u.replace("http:", "https:");
 		service = _s;
 	}
 	
