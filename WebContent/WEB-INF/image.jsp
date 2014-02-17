@@ -68,7 +68,7 @@ body {
 		</div>
 	</div>
 
-	<div class="row" align="center" style="background-color: #424242; padding-top:10px; padding-bottom:20px">
+	<div class="row" align="center" style="background-color: #424242; padding-top:30px; padding-bottom:30px">
 		<form class="form-signin" method="post" action="auth.do">
 			<div align="center">
 				<input class="btn btn-primary btn-lg" type="submit" name="share"

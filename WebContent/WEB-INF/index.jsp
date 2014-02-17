@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>zSpot - Spot the hot, share the trend</title>
+    <title>zSpot - Spot the Hot, Share the Trend</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -61,7 +61,7 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>zSpot</h1>
-                        <h3>Pick a city, explore the world.</h3>
+                        <h3>Spot the Hot, Share the Trend.</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li><a href="map.do" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span class="network-name">Start to Explore</span></a>
