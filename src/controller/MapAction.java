@@ -19,10 +19,13 @@ public class MapAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		String location = null;
-		String val = request.getParameter("search");			
+		String val = request.getParameter("search");	
+		HttpSession session = request.getSession(true);
 		
-		if (request.getParameter("mapbutton") == null && request.getParameter("search")==null)
+		if (request.getParameter("mapbutton") == null && request.getParameter("search")==null) {
+			session.invalidate();
 			return "map.jsp";
+		}
 		if (val != null)
 			location = val;
 		else
@@ -38,7 +41,6 @@ public class MapAction extends Action {
 					popular.add(forPaint.get(i));
 			}
 			
-			HttpSession session = request.getSession(true);
 			session.setAttribute("forPaint", forPaint);
 			session.setAttribute("popular", popular);
 			session.setAttribute("tweets", tweets);
