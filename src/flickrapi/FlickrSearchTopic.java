@@ -36,8 +36,7 @@ public class FlickrSearchTopic {
 					String url = "http://farm" + n.getInt("farm") + ".staticflickr.com/" + 
 							n.getString("server") + "/" + n.getString("id") + "_" + 
 							n.getString("secret") + "_z.jpg";
-					result.add(url);
-					
+					result.add(url);					
 				}
 				catch (Exception e) {
 					System.out.println("couldn't load image" + e.toString());
@@ -51,12 +50,11 @@ public class FlickrSearchTopic {
 	}
 	
 	private static JSONArray loadJSONFromString(String jsonString) throws JSONException {
-		JSONObject rootObj = new JSONObject(jsonString); 
+		JSONObject rootObj = new JSONObject(jsonString.trim()); 
 		JSONObject photoObj = rootObj.getJSONObject("photos");
 		JSONArray photos = photoObj.getJSONArray("photo");
 	
-		return photos;
-	
+		return photos;	
 	}
 
 	public static String getDoc(String urlToRead) {

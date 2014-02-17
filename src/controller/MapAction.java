@@ -27,8 +27,11 @@ public class MapAction extends Action {
 			session.invalidate();
 			return "map.jsp";
 		}
-		if (val == null || val.length() == 0)
+
+		if (request.getParameter("search") != null && (val == null || val.length() == 0)) {
+			session.invalidate();
 			return "map.jsp";
+		}
 		
 		if (val != null)
 			location = val;

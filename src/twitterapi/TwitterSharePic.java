@@ -46,7 +46,7 @@ public class TwitterSharePic {
 		ImageIO.write(img, "png", f);
 		// FileUtils.copyURLToFile(new URL(url), f);
 				
-		OAuthRequest request = new OAuthRequest(Verb.POST,
+		OAuthRequest request = new OAuthRequest(Verb.GET,
 				PROTECTED_RESOURCE_URL);
 		request.addHeader("Content-Type", "multipart/form-data");  
 		
