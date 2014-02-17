@@ -58,10 +58,17 @@ body {
 	<br>
 	<br>
 	
-	<div class="row" align="center" style="padding-top:40px">
-		<jsp:include page="error-list.jsp" />
+	<div class="row" align="center" style="background-color: #BDBDBD; padding-top:20px; padding-bottom:10px">
+		<h3 align="center" style="color:#2E2E2E">Share the Collage of ${location} to Your Twitter</h3>
+		<div align="center">
+			<img src="image" width="450px">
+		</div>
 	</div>
 
+	<div class="row" align="center">
+		<jsp:include page="error-list.jsp" />
+	</div>
+	
 	<div class="row" style="padding-top:20px">
 		<form class="form-signin" method="post" action="${auth.authUrl}"
 			target="_blank">
@@ -79,7 +86,7 @@ body {
 				<br>&nbsp;<br>				
 				<input type="hidden" name="hasauth" value="true"> 
 				<input type="text" class="input-large search-query" name="verify"
-					placeholder="Enter the verifier">
+					placeholder="Enter the verifier"> &nbsp;&nbsp;&nbsp;
 				<input class="btn btn-primary" type="submit" name="authbutton"
 					value="Confirm the Verifier">
 			</div>

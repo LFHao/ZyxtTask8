@@ -230,6 +230,8 @@ if (pops != null) {
 				</c:forEach>
 			</table>
 		</div>
+		
+		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<div class="col-md-6">
 			<h3 align="center">Tweets</h3>
 			<table style="width: 90%" align="center">
