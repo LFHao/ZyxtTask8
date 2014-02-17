@@ -23,6 +23,7 @@ public class Controller extends HttpServlet {
 		Action.add(new HomePageAction());
 		Action.add(new MapAction());
 		Action.add(new ImageAction());
+		Action.add(new AuthAction());
 	}
 	
 	

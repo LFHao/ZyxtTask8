@@ -33,7 +33,7 @@ public class ImageAction extends Action {
 			BufferedImage fg = WordsThumb.drawWordsThumb(forPaint, sw, sh, null);
 			BufferedImage img = MakeCollage.make(location, fg, photos, w, h);
 
-			request.setAttribute("img", img);
+			session.setAttribute("img", img);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,24 +1,13 @@
 package controller;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
-
-import com.aetrion.flickr.FlickrException;
-import com.aetrion.*;
-
 import databeans.*;
 import flickrapi.*;
 import twitterapi.*;
-import utility.MakeCollage;
-import utility.WordsThumb;
 
 public class MapAction extends Action {
 
@@ -30,8 +19,7 @@ public class MapAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		String location = null;
-		String val = request.getParameter("search");
-		System.out.println(val);			
+		String val = request.getParameter("search");			
 		
 		if (request.getParameter("mapbutton") == null && request.getParameter("search")==null)
 			return "map.jsp";

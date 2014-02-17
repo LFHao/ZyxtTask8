@@ -1,8 +1,8 @@
 package auth;
 
 public class TwitterAuth {
-	public static String API_KEY = "isnkdZlJaZaNM1QBxiKqxg";
-	public static String API_SECRET = "Bu8hFRP3xchrGjTLyyhacLZVneHEoGwS7nqkc6Y1LZM";
-	public static String ACCESS_TOKEN = "492384132-o3pz273KOuZORHEnaS4UKXJyoBqCZQTK17HsddPh";
-	public static String ACCESS_SECRET = "YfePCkSjJsV0SUNrycDAAZUvXqQHJExje74DhmWWbyPHK";
+	public static String API_KEY = "QhwhsvMeP3h5bpSgoJA0Q";
+	public static String API_SECRET = "uCkRU9b4Yz7bKF6kaiQBpxm28ztCrDXfjzuJCKcojHQ";
+	public static String ACCESS_TOKEN = "492384132-QmiNOE2a5IjSImABBiHOMdb5HMJw2gjbXIebmb44";
+	public static String ACCESS_SECRET = "DoIQWfHFaAvCyuBSUW5HK2u43SwJ6Gn6NczyF5Gbd6dUt";
 }

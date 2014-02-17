@@ -8,13 +8,15 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.awt.image.BufferedImage;
 
 @SuppressWarnings("serial")
 public class ImageServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    	BufferedImage img = (BufferedImage) request.getAttribute("img");
+    	HttpSession session = request.getSession(true);
+    	BufferedImage img = (BufferedImage) session.getAttribute("img");
 
         if (img == null) {
         	response.sendError(HttpServletResponse.SC_NOT_FOUND);
