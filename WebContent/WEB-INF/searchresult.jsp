@@ -222,8 +222,9 @@ if (pops != null) {
 					<c:if test="${status.index % 2 == 0}">
 						<tr>
 					</c:if>
-					<td align="center"><img src="${pic}" height="225px"
-						width="300px"></td>
+					
+					<td align="center"><a href="${pic}" target="_blank"><img src="${pic}" height="225px"
+						width="300px"></a></td>
 					<c:if test="${status.index % 2 == 1}">
 						</tr>
 					</c:if>

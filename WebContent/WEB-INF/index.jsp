@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>zSpot - Pick a City, Explore the World.</title>
+    <title>zSpot - Spot the hot, share the trend</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
