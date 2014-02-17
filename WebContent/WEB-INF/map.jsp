@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
 <link href="css/bootstrap.css" rel="stylesheet">
-
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 html,body,#map {
@@ -101,15 +101,44 @@ html,body,#map {
 </script>
 </head>
 <body>
-	<div id="searchBar"
-		style="height: 50px; padding-bottom: 5px; padding-top: 5px;">
-		<form class="form-signin" method="post" action="map.do">
-			<div align="center">
-				<input type="text" class="input-large search-query" name="search" placeholder="Enter a search Keyword">
-				<input class="btn btn-primary" type="submit" name="btnSubmit" Value="search">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.jsp">zSpot</a>
 			</div>
-		</form>
-	</div>
+			
+			<form class="form-signin" method="post" action="map.do">
+			
+					<div class="col-md-6" align="right" style="padding-top: 8px; padding-left:70px">
+
+						<input type="text" class="form-control" name="search"
+							placeholder="Enter a search Keyword">
+
+					</div>
+					<div class="col-md-2" align="center" style="padding-top: 8px">
+						<input class="btn btn-primary" type="submit" name="btnSubmit" Value="search">
+					</div>
+
+			</form>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div
+				class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#about">About</a></li>
+					<li><a href="#services">Services</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br><br>
 	<div id="map"></div>
 </body>
 </html>

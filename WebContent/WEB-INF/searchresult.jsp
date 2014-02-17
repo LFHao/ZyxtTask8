@@ -13,8 +13,8 @@
 <style type="text/css"></style>
 <title>Search Results on ${location}</title>
 <style>
-body {
-	background-color: #0B0B3B;
+body { 
+	background-color: black;
 	color: #CEECF5;
 	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #CEECF5;
@@ -53,21 +53,21 @@ if (pops != null) {
 		// Set chart options
 		var options = {
 			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
-			titleTextStyle:{color: 'white'},
+			titleTextStyle:{color: 'black'},
 			'width' : 600,
 			'height' : 500,
-			'backgroundColor':'0B0B3B',
+			'backgroundColor':'white',
 			'legend': {position:'none'},
 			vAxis: {
 					title: 'Hot Topics',
-					baseline:{color:'white'},
-					gridlines:{color:'white'},
-					titleTextStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'},
-					textStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
+					baseline:{color:'black'},
+					gridlines:{color:'black'},
+					titleTextStyle: {color: 'black', fontName: 'Time New Roman', italic: 'false', bold:'true'},
+					textStyle: {color: 'black', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
 			hAxis: {
 					title: 'Frequrency in 100 Searches',  
-					titleTextStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'},
-					textStyle: {color: 'white', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
+					titleTextStyle: {color: 'black', fontName: 'Time New Roman', italic: 'false', bold:'true'},
+					textStyle: {color: 'black', fontName: 'Time New Roman', italic: 'false', bold:'true'}},
 			'backgroundColor.stroke': '#E0F8F7', 
 			'backgroundColor.strokeWidth': 2,
 			'backgroundColor.fill': 'white',
@@ -107,48 +107,48 @@ if (pops != null) {
 
         data.setCell(0, 0, '<%=pops.get(0).getKey()%>');
         data.setCell(0, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(0).getKey().replace(" ", "_")%>');
-        data.setCell(0, 2, 2+<%=pops.get(0).getValue()/3%>);
+        data.setCell(0, 2, 2+<%=pops.get(0).getValue()/4%>);
         
         data.setCell(1, 0, '<%=pops.get(1).getKey()%>');  
         data.setCell(1, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(1).getKey().replace(" ", "_")%>');
-        data.setCell(1, 2, 2+<%=pops.get(1).getValue()/3%>);      
+        data.setCell(1, 2, 2+<%=pops.get(1).getValue()/4%>);      
         
         data.setCell(2, 0, '<%=pops.get(2).getKey()%>');
         data.setCell(2, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(2).getKey().replace(" ", "_")%>');
-        data.setCell(2, 2, 2+<%=pops.get(2).getValue()/3%>);       
+        data.setCell(2, 2, 2+<%=pops.get(2).getValue()/4%>);       
         
 		data.setCell(3, 0, '<%=pops.get(3).getKey()%>');
         data.setCell(3, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(3).getKey().replace(" ", "_")%>');
-        data.setCell(3, 2, 2+<%=pops.get(3).getValue()/3%>);
+        data.setCell(3, 2, 2+<%=pops.get(3).getValue()/4%>);
         
         data.setCell(4, 0, '<%=pops.get(4).getKey()%>');
         data.setCell(4, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(4).getKey().replace(" ", "_")%>');
-        data.setCell(4, 2, 2+<%=pops.get(4).getValue()/3%>);
+        data.setCell(4, 2, 2+<%=pops.get(4).getValue()/4%>);
         
         data.setCell(5, 0, '<%=pops.get(5).getKey()%>');
         data.setCell(5, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(5).getKey().replace(" ", "_")%>');
-        data.setCell(5, 2, 2+<%=pops.get(5).getValue()/3%>);
+        data.setCell(5, 2, 2+<%=pops.get(5).getValue()/4%>);
         
         data.setCell(6, 0, '<%=pops.get(6).getKey()%>');
         data.setCell(6, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(6).getKey().replace(" ", "_")%>');
-        data.setCell(6, 2, 2+<%=pops.get(6).getValue()/3%>);
+        data.setCell(6, 2, 2+<%=pops.get(6).getValue()/4%>);
        
         data.setCell(7, 0, '<%=pops.get(7).getKey()%>');
         data.setCell(7, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(7).getKey().replace(" ", "_")%>');
-        data.setCell(7, 2, 2+<%=pops.get(7).getValue()/2%>);
+        data.setCell(7, 2, 2+<%=pops.get(7).getValue()/4%>);
         
         data.setCell(8, 0, '<%=pops.get(8).getKey()%>');
         data.setCell(8, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(8).getKey().replace(" ", "_")%>');
-        data.setCell(8, 2, 2+<%=pops.get(8).getValue()/2%>);
+        data.setCell(8, 2, 2+<%=pops.get(8).getValue()/4%>);
         
         data.setCell(9, 0, '<%=pops.get(9).getKey()%>');
         data.setCell(9, 1, 'http://en.wikipedia.org/wiki/+ <%=pops.get(9).getKey().replace(" ", "_")%>');
-        data.setCell(9, 2, 2+<%=pops.get(9).getValue()/2%>);
+        data.setCell(9, 2, 2+<%=pops.get(9).getValue()/4%>);
 
         
        
        var options = {
-    		'text_color': '#E0F8F7',
+    		'text_color': '#31B404',
    			'title' : '10 Most Popular Words about <%=request.getParameter("location")%>',
 			'width' : 500,
 			'height' : 500,
@@ -166,13 +166,40 @@ if (pops != null) {
 </script>
 </head>
 <body>
-	<h2 align="center">Hot Words In Tweets About ${location}</h2>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.jsp">zSpot</a>
+		</div>
 
-	<div class="col-md-5" id="chart_div"></div>
-	<div class="col-md-5" id="mydiv"></div>
-	<div class="row">
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#about">About</a></li>
+				<li><a href="#services">Services</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+	</nav>
+
+	<br><br>
+	<div class="row" style="background-color: white">
+		<div class="col-md-5" id="chart_div"></div>
+		<div class="col-md-5" id="mydiv"></div>
+	</div>
+
+	<div class="row" style="background-color: black">
+		
+			<h3 align="center">Flickrs Tweets</h3>
+		
 		<div class="col-md-6">
-			<h3 align="center">Flickrs</h3>
 			<table style="width: 100%">
 				<c:forEach var="pic" items="${photos}" varStatus="status">
 					<c:if test="${status.index % 2 == 0}">
@@ -187,7 +214,6 @@ if (pops != null) {
 			</table>
 		</div>
 		<div class="col-md-6">
-			<h3 align="center">Tweets</h3>
 			<table style="width: 90%" align="center">
 				<c:forEach var="tweet" items="${tweets}">
 					<tr>
@@ -205,15 +231,18 @@ if (pops != null) {
 
 
 	<div align="center">
-		<div id="tag-suggest-pop" style="display: block;" align="center">
+		<div id="tag-suggest-pop" style="display: block;" align="center"
+			style="padding left:100px">
 			<div class="relative">
 				<form method="post" action="image.do">
 					<div class="content">
-						<button type="submit" class="btn btn-default btn-lg" name="collage" value="true">Click To Get Your Souvenir</button>
+						<button type="submit" class="btn btn-default btn-lg"
+							name="collage" value="true">Click To Get Your Souvenir</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
