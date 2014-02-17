@@ -20,8 +20,10 @@ public class MapAction extends Action {
 	public String perform(HttpServletRequest request) {
 		String location = null;
 		String val = request.getParameter("search");			
-		
+
 		if (request.getParameter("mapbutton") == null && request.getParameter("search")==null)
+			return "map.jsp";
+		if (val.length() == 0)
 			return "map.jsp";
 		if (val != null)
 			location = val;
