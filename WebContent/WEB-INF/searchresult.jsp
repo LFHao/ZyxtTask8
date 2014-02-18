@@ -215,7 +215,7 @@ if (pops != null) {
 	</div>
 
 	<div class="row" style="background-color: #424242">
-		<div class="col-md-6">
+		<div class="col-md-6" align="center">
 			<h3 align="center">Flickr Pictures</h3>
 			<table style="width: 100%">
 				<c:forEach var="pic" items="${photos}" varStatus="status">
@@ -233,7 +233,7 @@ if (pops != null) {
 		</div>
 		
 		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
-		<div class="col-md-6">
+		<div class="col-md-6" align="center">
 			<h3 align="center">Tweets</h3>
 			<table style="width: 90%" align="center">
 				<c:forEach var="tweet" items="${tweets}">

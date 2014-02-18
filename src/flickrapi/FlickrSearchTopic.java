@@ -18,12 +18,12 @@ import auth.FlickrAuth;
 public class FlickrSearchTopic {	
 	public static List<String> getPhotos(String searchParam){
 		FlickrAuth authObj = new FlickrAuth();
-		int per_page = 32;
+		int per_page = 30;
 		int page = 1;
 		List<String> result = new ArrayList<String>();
 		String method = "flickr.photos.search";
-		String strFlickrAPI  ="http://api.flickr.com/services/rest/?" + 
-				"method=" + method + "&api_key=" + authObj.getKey()  + "&tags=" + searchParam + "&sort=interestingness-desc&format=json&nojsoncallback=1&per_page="
+		String strFlickrAPI  ="http://api.flickr.com/services/rest?" + 
+				"method=" + method + "&api_key=" + authObj.getKey()  + "&tags=" + searchParam.replace(" ", "+") + "&sort=interestingness-desc&format=json&nojsoncallback=1&per_page="
 				+ per_page + "&page=" + page ;
 		String jsonString = getDoc(strFlickrAPI);
 		try {
