@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.image.BufferedImage;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,7 @@ public class AuthAction extends Action {
 			BufferedImage img = (BufferedImage) session.getAttribute("img");
 
 			boolean res = TwitterSharePic.postTweetWithMedia(authRes, verifier, status, img);
-			if (res == true) {
+			if (res) {
 				session.setAttribute("auth", null);
 				return "succeed.jsp";
 			}		

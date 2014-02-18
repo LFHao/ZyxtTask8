@@ -31,7 +31,7 @@ body {
 #errors {
 	padding: 10px 40px;
 	background: #F8E0F7;
-	width: 45%;
+	width: 55%;
 	border-radius: 15px;
 	font-family: Helvetica;
 	color: #610B5E;
@@ -80,9 +80,11 @@ body {
 	<div class="row" align="center"
 		style="padding-top: 20px; padding-bottom: 20px">
 		<div id="errors">
-			If you got a 403 verification error when trying to get the verifier,
-			clear the cookies of your browser, go back to the home page and try
-			again.<br>
+			<b>To share the picture to your Twitter account, you need to click the
+			"Get the Verifier" button below, get the verifier and type the
+			verifier into the verifier field below. </b>If you got a 403 verification error
+			when trying to get the verifier, please clear the cookies of your browser,
+			go back to the home page and try again.<br>
 
 			<div class="row" style="padding-top: 20px">
 				<form class="form-signin" method="post" action="${auth.authUrl}"
@@ -94,9 +96,9 @@ body {
 					</div>
 				</form>
 			</div>
-			
+
 			<jsp:include page="error-list.jsp" />
-						
+
 		</div>
 	</div>
 

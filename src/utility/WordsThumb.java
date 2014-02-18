@@ -40,9 +40,9 @@ public class WordsThumb {
 		if(bi == null)
 			return null;
 		if(maxFontSize == null)
-			maxFontSize = Math.min(width, height) / 5;
+			maxFontSize = Math.min(width, height) / 7;
 		if(minFontSize == null)
-			minFontSize = Math.min(width, height) / 40;
+			minFontSize = Math.min(width, height) / 30;
 		if(minFontSize < MIN_FONT_SIZE)
 			minFontSize = Integer.valueOf(MIN_FONT_SIZE);
 		if(maxFontSize < minFontSize)
@@ -77,17 +77,19 @@ public class WordsThumb {
 		int fontSizeAdjust = 0;
 		int maxFrequency = words.get(0).value;
 		int minFrequency = words.get(words.size() - 1).value;
-		for (Mapping p : words) {
+		//int maxFrequency = words.size() - 1;
+		//int minFrequency = 0;
+		for (int i = 0; i < words.size(); i++) {
 			do {
-				java.awt.Font font = initFont(g2, fontName, maxFontSize, minFontSize, p.value, maxFrequency, minFrequency, fontSizeAdjust);
+				java.awt.Font font = initFont(g2, fontName, maxFontSize, minFontSize, words.get(i).value, maxFrequency, minFrequency, fontSizeAdjust);
 				if(font.getSize() < minFontSize)
 					return wordCount;
-				java.awt.geom.Rectangle2D bounds = getStringBounds(g2, font, p.key);
+				java.awt.geom.Rectangle2D bounds = getStringBounds(g2, font, words.get(i).key);
 				int direction = (int)((Math.random() * 10000D) % 4D % 3D);
 				java.awt.geom.Rectangle2D rect = bounds.getBounds();
 				if(direction != 0)
 					rect.setRect(rect.getX(), rect.getY(), rect.getHeight(), rect.getWidth());
-				rect = findSpace2(bitMap, rect);
+				rect = findSpace(bitMap, rect);
 				if(rect == null) {
 					rect = bounds.getBounds();
 					if(direction == 0) {
@@ -96,10 +98,10 @@ public class WordsThumb {
 					} else {
 						direction = 0;
 					}
-					rect = findSpace2(bitMap, rect);
+					rect = findSpace(bitMap, rect);
 				}
 				if(rect != null) {
-					paintOneWord(bi, g2, p.key, direction, rect, bounds);
+					paintOneWord(bi, g2, words.get(i).key, direction, rect, bounds);
 					updateBitMap(bitMap, bi, rect);
 					wordCount++;
 					break;
@@ -353,7 +355,7 @@ public class WordsThumb {
 	public static final int MAX_HEIGHT = 1920;
 	public static final int BLOCK = 4;
 	public static final String DEF_FONT = "Palatino Linotype";
-	public static final int MIN_FONT_SIZE = 20;
+	public static final int MIN_FONT_SIZE = 24;
 	private static final int COLORS[] = {
 		0x4169E1, 0x8B4513, 0xFA8072, 0xF4A460, 0x2E8B57, 0xE374AB, 0xA0522D, 0x0874A1, 0x433B78, 
 		0x39536E, 0x066636, 0x4682B4, 0x806A4E, 0x474747, 0x008080, 0x8F1F8F, 0xFC3E1C, 0x20B3A4, 0x3B8A94

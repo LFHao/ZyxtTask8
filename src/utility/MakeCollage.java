@@ -33,7 +33,7 @@ public class MakeCollage {
 			return null;
 
 		int maxWidth = width / 5;
-		int maxHeight = height / 5;
+		int maxHeight = height / 4;
 		
 		ArrayList<String> urls = new ArrayList<String>();
 		if (murl.size() < MAX_SIZE)

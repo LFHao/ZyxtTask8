@@ -73,7 +73,6 @@ public class TwitterSharePic {
 
 	        if (response.isSuccessful())
 	        	return true;
-
 	    } catch (UnsupportedEncodingException e) {
 	        e.printStackTrace();
 	    } catch (IOException e) {
